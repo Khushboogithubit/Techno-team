@@ -1,0 +1,3325 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AI Voices - NaturalReader Home</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1">
+    <meta name="description" content="NaturalReader: Free Text to Speech for Online, Mobile App, Commercial license and Education with AI voices." />
+    <meta name="keywords" content="">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="shortcut icon" href="./comfiles/favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="preload" href="comfiles/index/css/critical.css?v=04232" as="style" crossorigin="anonymous" onload="this.rel = 'stylesheet'">
+
+    <!-- style for bootstrap -->
+    <style>
+        :root {
+            color-scheme: dark;
+            --bs-body-color: #dee2e6;
+            --bs-body-color-rgb: 222, 226, 230;
+            --bs-body-bg: #212529
+        }
+
+        .dropup,
+        .dropend,
+        .dropdown,
+        .dropstart,
+        .dropup-center,
+        .dropdown-center {
+            position: relative
+        }
+
+        .dropdown-toggle {
+            white-space: nowrap
+        }
+
+        .dropdown-toggle::after {
+            display: inline-block;
+            margin-left: .255em;
+            vertical-align: .255em;
+            content: "";
+            border-top: .3em solid;
+            border-right: .3em solid transparent;
+            border-bottom: 0;
+            border-left: .3em solid transparent
+        }
+
+        .dropdown-toggle:empty::after {
+            margin-left: 0
+        }
+
+        .dropdown-menu {
+            --bs-dropdown-zindex: 1000;
+            --bs-dropdown-min-width: 10rem;
+            --bs-dropdown-padding-x: 0;
+            --bs-dropdown-padding-y: .5rem;
+            --bs-dropdown-spacer: .125rem;
+            --bs-dropdown-font-size: 1rem;
+            --bs-dropdown-color: var(--bs-body-color);
+            --bs-dropdown-bg: var(--bs-body-bg);
+            --bs-dropdown-border-color: var(--bs-border-color-translucent);
+            --bs-dropdown-border-radius: var(--bs-border-radius);
+            --bs-dropdown-border-width: var(--bs-border-width);
+            --bs-dropdown-inner-border-radius: calc(var(--bs-border-radius) - var(--bs-border-width));
+            --bs-dropdown-divider-bg: var(--bs-border-color-translucent);
+            --bs-dropdown-divider-margin-y: .5rem;
+            --bs-dropdown-box-shadow: var(--bs-box-shadow);
+            --bs-dropdown-link-color: var(--bs-body-color);
+            --bs-dropdown-link-hover-color: var(--bs-body-color);
+            --bs-dropdown-link-hover-bg: var(--bs-tertiary-bg);
+            --bs-dropdown-link-active-color: #fff;
+            --bs-dropdown-link-active-bg: #0d6efd;
+            --bs-dropdown-link-disabled-color: var(--bs-tertiary-color);
+            --bs-dropdown-item-padding-x: 1rem;
+            --bs-dropdown-item-padding-y: .25rem;
+            --bs-dropdown-header-color: #6c757d;
+            --bs-dropdown-header-padding-x: 1rem;
+            --bs-dropdown-header-padding-y: .5rem;
+            position: absolute;
+            z-index: var(--bs-dropdown-zindex);
+            display: none;
+            min-width: var(--bs-dropdown-min-width);
+            padding: var(--bs-dropdown-padding-y) var(--bs-dropdown-padding-x);
+            margin: 0;
+            font-size: var(--bs-dropdown-font-size);
+            color: var(--bs-dropdown-color);
+            text-align: left;
+            list-style: none;
+            background-color: var(--bs-dropdown-bg);
+            background-clip: padding-box;
+            border: var(--bs-dropdown-border-width) solid var(--bs-dropdown-border-color);
+            border-radius: var(--bs-dropdown-border-radius)
+        }
+
+        .dropdown-menu[data-bs-popper] {
+            top: 100%;
+            left: 0;
+            margin-top: var(--bs-dropdown-spacer)
+        }
+
+        .dropdown-menu-start {
+            --bs-position: start
+        }
+
+        .dropdown-menu-start[data-bs-popper] {
+            right: auto;
+            left: 0
+        }
+
+        .dropdown-menu-end {
+            --bs-position: end
+        }
+
+        .dropdown-menu-end[data-bs-popper] {
+            right: 0;
+            left: auto
+        }
+
+        .dropup .dropdown-menu[data-bs-popper] {
+            top: auto;
+            bottom: 100%;
+            margin-top: 0;
+            margin-bottom: var(--bs-dropdown-spacer)
+        }
+
+        .dropup .dropdown-toggle::after {
+            display: inline-block;
+            margin-left: .255em;
+            vertical-align: .255em;
+            content: "";
+            border-top: 0;
+            border-right: .3em solid transparent;
+            border-bottom: .3em solid;
+            border-left: .3em solid transparent
+        }
+
+        .dropup .dropdown-toggle:empty::after {
+            margin-left: 0
+        }
+
+        .dropend .dropdown-menu[data-bs-popper] {
+            top: 0;
+            right: auto;
+            left: 100%;
+            margin-top: 0;
+            margin-left: var(--bs-dropdown-spacer)
+        }
+
+        .dropend .dropdown-toggle::after {
+            display: inline-block;
+            margin-left: .255em;
+            vertical-align: .255em;
+            content: "";
+            border-top: .3em solid transparent;
+            border-right: 0;
+            border-bottom: .3em solid transparent;
+            border-left: .3em solid
+        }
+
+        .dropend .dropdown-toggle:empty::after {
+            margin-left: 0
+        }
+
+        .dropend .dropdown-toggle::after {
+            vertical-align: 0
+        }
+
+        .dropstart .dropdown-menu[data-bs-popper] {
+            top: 0;
+            right: 100%;
+            left: auto;
+            margin-top: 0;
+            margin-right: var(--bs-dropdown-spacer)
+        }
+
+        .dropstart .dropdown-toggle::after {
+            display: inline-block;
+            margin-left: .255em;
+            vertical-align: .255em;
+            content: ""
+        }
+
+        .dropstart .dropdown-toggle::after {
+            display: none
+        }
+
+        .dropstart .dropdown-toggle::before {
+            display: inline-block;
+            margin-right: .255em;
+            vertical-align: .255em;
+            content: "";
+            border-top: .3em solid transparent;
+            border-right: .3em solid;
+            border-bottom: .3em solid transparent
+        }
+
+        .dropstart .dropdown-toggle:empty::after {
+            margin-left: 0
+        }
+
+        .dropstart .dropdown-toggle::before {
+            vertical-align: 0
+        }
+
+        .dropdown-divider {
+            height: 0;
+            margin: var(--bs-dropdown-divider-margin-y) 0;
+            overflow: hidden;
+            border-top: 1px solid var(--bs-dropdown-divider-bg);
+            opacity: 1
+        }
+
+        .dropdown-item {
+            display: block;
+            width: 100%;
+            padding: var(--bs-dropdown-item-padding-y) var(--bs-dropdown-item-padding-x);
+            clear: both;
+            font-weight: 400;
+            color: var(--bs-dropdown-link-color);
+            text-align: inherit;
+            text-decoration: none;
+            white-space: nowrap;
+            background-color: transparent;
+            border: 0;
+            border-radius: var(--bs-dropdown-item-border-radius, 0)
+        }
+
+        .dropdown-item:hover,
+        .dropdown-item:focus {
+            color: var(--bs-dropdown-link-hover-color);
+            background-color: var(--bs-dropdown-link-hover-bg)
+        }
+
+        .dropdown-item.active,
+        .dropdown-item:active {
+            color: var(--bs-dropdown-link-active-color);
+            text-decoration: none;
+            background-color: var(--bs-dropdown-link-active-bg)
+        }
+
+        .dropdown-item.disabled,
+        .dropdown-item:disabled {
+            color: var(--bs-dropdown-link-disabled-color);
+            pointer-events: none;
+            background-color: transparent
+        }
+
+        .dropdown-menu.show {
+            display: block
+        }
+
+        .dropdown-header {
+            display: block;
+            padding: var(--bs-dropdown-header-padding-y) var(--bs-dropdown-header-padding-x);
+            margin-bottom: 0;
+            font-size: .875rem;
+            color: var(--bs-dropdown-header-color);
+            white-space: nowrap
+        }
+
+        .dropdown-item-text {
+            display: block;
+            padding: var(--bs-dropdown-item-padding-y) var(--bs-dropdown-item-padding-x);
+            color: var(--bs-dropdown-link-color)
+        }
+
+        .dropdown-menu-dark {
+            --bs-dropdown-color: #dee2e6;
+            --bs-dropdown-bg: #343a40;
+            --bs-dropdown-border-color: var(--bs-border-color-translucent);
+            --bs-dropdown-box-shadow: ;
+            --bs-dropdown-link-color: #dee2e6;
+            --bs-dropdown-link-hover-color: #fff;
+            --bs-dropdown-divider-bg: var(--bs-border-color-translucent);
+            --bs-dropdown-link-hover-bg: rgba(255, 255, 255, 0.15);
+            --bs-dropdown-link-active-color: #fff;
+            --bs-dropdown-link-active-bg: #0d6efd;
+            --bs-dropdown-link-disabled-color: #adb5bd;
+            --bs-dropdown-header-color: #adb5bd
+        }
+
+        .clearfix::after {
+            display: block;
+            clear: both;
+            content: ""
+        }
+
+        .d-inline {
+            display: inline !important
+        }
+
+        .d-inline-block {
+            display: inline-block !important
+        }
+
+        .d-block {
+            display: block !important
+        }
+
+        .d-grid {
+            display: grid !important
+        }
+
+        .d-inline-grid {
+            display: inline-grid !important
+        }
+
+        .d-table {
+            display: table !important
+        }
+
+        .d-table-row {
+            display: table-row !important
+        }
+
+        .d-table-cell {
+            display: table-cell !important
+        }
+
+        .d-flex {
+            display: flex !important
+        }
+
+        .d-inline-flex {
+            display: inline-flex !important
+        }
+
+        .d-none {
+            display: none !important
+        }
+
+        .w-100 {
+            width: 100% !important
+        }
+
+        .w-auto {
+            width: auto !important
+        }
+
+        .mw-100 {
+            max-width: 100% !important
+        }
+
+        .vw-100 {
+            width: 100vw !important
+        }
+
+        .h-100 {
+            height: 100% !important
+        }
+
+        .h-auto {
+            height: auto !important
+        }
+
+        .mh-100 {
+            max-height: 100% !important
+        }
+
+        .vh-100 {
+            height: 100vh !important
+        }
+
+        .min-vh-100 {
+            min-height: 100vh !important
+        }
+
+        .flex-fill {
+            flex: 1 1 auto !important
+        }
+
+        .flex-row {
+            flex-direction: row !important
+        }
+
+        .flex-column {
+            flex-direction: column !important
+        }
+
+        .flex-row-reverse {
+            flex-direction: row-reverse !important
+        }
+
+        .flex-column-reverse {
+            flex-direction: column-reverse !important
+        }
+
+        .flex-grow-0 {
+            flex-grow: 0 !important
+        }
+
+        .flex-grow-1 {
+            flex-grow: 1 !important
+        }
+
+        .flex-shrink-0 {
+            flex-shrink: 0 !important
+        }
+
+        .flex-shrink-1 {
+            flex-shrink: 1 !important
+        }
+
+        .flex-wrap {
+            flex-wrap: wrap !important
+        }
+
+        .flex-nowrap {
+            flex-wrap: nowrap !important
+        }
+
+        .flex-wrap-reverse {
+            flex-wrap: wrap-reverse !important
+        }
+
+        .justify-content-start {
+            justify-content: flex-start !important
+        }
+
+        .justify-content-end {
+            justify-content: flex-end !important
+        }
+
+        .justify-content-center {
+            justify-content: center !important
+        }
+
+        .justify-content-between {
+            justify-content: space-between !important
+        }
+
+        .justify-content-around {
+            justify-content: space-around !important
+        }
+
+        .justify-content-evenly {
+            justify-content: space-evenly !important
+        }
+
+        .align-items-start {
+            align-items: flex-start !important
+        }
+
+        .align-items-end {
+            align-items: flex-end !important
+        }
+
+        .align-items-center {
+            align-items: center !important
+        }
+
+        .align-items-baseline {
+            align-items: baseline !important
+        }
+
+        .align-items-stretch {
+            align-items: stretch !important
+        }
+
+        .fade {
+            transition: opacity 0.15s linear
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .fade {
+                transition: none
+            }
+        }
+
+        .fade:not(.show) {
+            opacity: 0
+        }
+
+        .collapse:not(.show) {
+            display: none
+        }
+
+        .collapsing {
+            height: 0;
+            overflow: hidden;
+            transition: height 0.35s ease
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .collapsing {
+                transition: none
+            }
+        }
+
+        .collapsing.collapse-horizontal {
+            width: 0;
+            height: auto;
+            transition: width 0.35s ease
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .collapsing.collapse-horizontal {
+                transition: none
+            }
+        }
+
+        .accordion {
+            --bs-accordion-color: var(--bs-body-color);
+            --bs-accordion-bg: var(--bs-body-bg);
+            --bs-accordion-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
+            --bs-accordion-border-color: var(--bs-border-color);
+            --bs-accordion-border-width: var(--bs-border-width);
+            --bs-accordion-border-radius: var(--bs-border-radius);
+            --bs-accordion-inner-border-radius: calc(var(--bs-border-radius) - (var(--bs-border-width)));
+            --bs-accordion-btn-padding-x: 1.25rem;
+            --bs-accordion-btn-padding-y: 1rem;
+            --bs-accordion-btn-color: var(--bs-body-color);
+            --bs-accordion-btn-bg: var(--bs-accordion-bg);
+            --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23212529' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 5L8 11L14 5'/%3e%3c/svg%3e");
+            --bs-accordion-btn-icon-width: 1.25rem;
+            --bs-accordion-btn-icon-transform: rotate(-180deg);
+            --bs-accordion-btn-icon-transition: transform 0.2s ease-in-out;
+            --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23052c65' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 5L8 11L14 5'/%3e%3c/svg%3e");
+            --bs-accordion-btn-focus-box-shadow: 0 0 0 .25rem rgba(13, 110, 253, 0.25);
+            --bs-accordion-body-padding-x: 1.25rem;
+            --bs-accordion-body-padding-y: 1rem;
+            --bs-accordion-active-color: var(--bs-primary-text-emphasis);
+            --bs-accordion-active-bg: var(--bs-primary-bg-subtle)
+        }
+
+        .accordion-button {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: var(--bs-accordion-btn-padding-y) var(--bs-accordion-btn-padding-x);
+            font-size: 1rem;
+            color: var(--bs-accordion-btn-color);
+            text-align: left;
+            background-color: var(--bs-accordion-btn-bg);
+            border: 0;
+            border-radius: 0;
+            overflow-anchor: none;
+            transition: var(--bs-accordion-transition)
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .accordion-button {
+                transition: none
+            }
+        }
+
+        .accordion-button:not(.collapsed) {
+            color: var(--bs-accordion-active-color);
+            background-color: var(--bs-accordion-active-bg);
+            box-shadow: inset 0 calc(-1 * var(--bs-accordion-border-width)) 0 var(--bs-accordion-border-color)
+        }
+
+        .accordion-button:not(.collapsed)::after {
+            background-image: var(--bs-accordion-btn-active-icon);
+            transform: var(--bs-accordion-btn-icon-transform)
+        }
+
+        .accordion-button::after {
+            flex-shrink: 0;
+            width: var(--bs-accordion-btn-icon-width);
+            height: var(--bs-accordion-btn-icon-width);
+            margin-left: auto;
+            content: "";
+            background-image: var(--bs-accordion-btn-icon);
+            background-repeat: no-repeat;
+            background-size: var(--bs-accordion-btn-icon-width);
+            transition: var(--bs-accordion-btn-icon-transition)
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .accordion-button::after {
+                transition: none
+            }
+        }
+
+        .accordion-button:hover {
+            z-index: 2
+        }
+
+        .accordion-button:focus {
+            z-index: 3;
+            outline: 0;
+            box-shadow: var(--bs-accordion-btn-focus-box-shadow)
+        }
+
+        .accordion-header {
+            margin-bottom: 0
+        }
+
+        .accordion-item {
+            color: var(--bs-accordion-color);
+            background-color: var(--bs-accordion-bg);
+            border: var(--bs-accordion-border-width) solid var(--bs-accordion-border-color)
+        }
+
+        .accordion-item:first-of-type {
+            border-top-left-radius: var(--bs-accordion-border-radius);
+            border-top-right-radius: var(--bs-accordion-border-radius)
+        }
+
+        .accordion-item:first-of-type>.accordion-header .accordion-button {
+            border-top-left-radius: var(--bs-accordion-inner-border-radius);
+            border-top-right-radius: var(--bs-accordion-inner-border-radius)
+        }
+
+        .accordion-item:not(:first-of-type) {
+            border-top: 0
+        }
+
+        .accordion-item:last-of-type {
+            border-bottom-right-radius: var(--bs-accordion-border-radius);
+            border-bottom-left-radius: var(--bs-accordion-border-radius)
+        }
+
+        .accordion-item:last-of-type>.accordion-header .accordion-button.collapsed {
+            border-bottom-right-radius: var(--bs-accordion-inner-border-radius);
+            border-bottom-left-radius: var(--bs-accordion-inner-border-radius)
+        }
+
+        .accordion-item:last-of-type>.accordion-collapse {
+            border-bottom-right-radius: var(--bs-accordion-border-radius);
+            border-bottom-left-radius: var(--bs-accordion-border-radius)
+        }
+
+        .accordion-body {
+            padding: var(--bs-accordion-body-padding-y) var(--bs-accordion-body-padding-x)
+        }
+
+        .accordion-flush>.accordion-item {
+            border-right: 0;
+            border-left: 0;
+            border-radius: 0
+        }
+
+        .accordion-flush>.accordion-item:first-child {
+            border-top: 0
+        }
+
+        .accordion-flush>.accordion-item:last-child {
+            border-bottom: 0
+        }
+
+        .accordion-flush>.accordion-item>.accordion-header .accordion-button,
+        .accordion-flush>.accordion-item>.accordion-header .accordion-button.collapsed {
+            border-radius: 0
+        }
+
+        .accordion-flush>.accordion-item>.accordion-collapse {
+            border-radius: 0
+        }
+
+        .accordion-button::after {
+            --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%236ea8fe'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+            --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%236ea8fe'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e")
+        }
+    </style>
+
+    <style>
+        .container,
+        .container-fluid {
+            --bs-gutter-x: 1.5rem;
+            --bs-gutter-y: 0;
+            width: 100%;
+            padding-right: calc(var(--bs-gutter-x) * .5);
+            padding-left: calc(var(--bs-gutter-x) * .5);
+            margin-right: auto;
+            margin-left: auto
+        }
+
+        @media (min-width: 576px) {
+            .container {
+                max-width: 540px
+            }
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                max-width: 720px
+            }
+        }
+
+        @media (min-width: 992px) {
+            .container {
+                max-width: 960px
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1140px
+            }
+        }
+
+        @media (min-width: 1400px) {
+            .container {
+                max-width: 1320px
+            }
+        }
+
+        .row {
+            --bs-gutter-x: 1.5rem;
+            --bs-gutter-y: 0;
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: calc(-1 * var(--bs-gutter-y));
+            margin-right: calc(-.5 * var(--bs-gutter-x));
+            margin-left: calc(-.5 * var(--bs-gutter-x))
+        }
+
+        .row>* {
+            box-sizing: border-box;
+            flex-shrink: 0;
+            width: 100%;
+            max-width: 100%;
+            padding-right: calc(var(--bs-gutter-x) * .5);
+            padding-left: calc(var(--bs-gutter-x) * .5);
+            margin-top: var(--bs-gutter-y)
+        }
+
+        .col {
+            flex: 1 0 0%
+        }
+
+        .col-auto {
+            flex: 0 0 auto;
+            width: auto
+        }
+
+        .col-1 {
+            flex: 0 0 auto;
+            width: 8.33333%
+        }
+
+        .col-2 {
+            flex: 0 0 auto;
+            width: 16.66667%
+        }
+
+        .col-3 {
+            flex: 0 0 auto;
+            width: 25%
+        }
+
+        .col-4 {
+            flex: 0 0 auto;
+            width: 33.33333%
+        }
+
+        .col-5 {
+            flex: 0 0 auto;
+            width: 41.66667%
+        }
+
+        .col-6 {
+            flex: 0 0 auto;
+            width: 50%
+        }
+
+        .col-7 {
+            flex: 0 0 auto;
+            width: 58.33333%
+        }
+
+        .col-8 {
+            flex: 0 0 auto;
+            width: 66.66667%
+        }
+
+        .col-9 {
+            flex: 0 0 auto;
+            width: 75%
+        }
+
+        .col-10 {
+            flex: 0 0 auto;
+            width: 83.33333%
+        }
+
+        .col-11 {
+            flex: 0 0 auto;
+            width: 91.66667%
+        }
+
+        .col-12 {
+            flex: 0 0 auto;
+            width: 100%
+        }
+
+        @media (min-width: 576px) {
+            .col-sm {
+                flex: 1 0 0%
+            }
+            .col-sm-auto {
+                flex: 0 0 auto;
+                width: auto
+            }
+            .col-sm-1 {
+                flex: 0 0 auto;
+                width: 8.33333%
+            }
+            .col-sm-2 {
+                flex: 0 0 auto;
+                width: 16.66667%
+            }
+            .col-sm-3 {
+                flex: 0 0 auto;
+                width: 25%
+            }
+            .col-sm-4 {
+                flex: 0 0 auto;
+                width: 33.33333%
+            }
+            .col-sm-5 {
+                flex: 0 0 auto;
+                width: 41.66667%
+            }
+            .col-sm-6 {
+                flex: 0 0 auto;
+                width: 50%
+            }
+            .col-sm-7 {
+                flex: 0 0 auto;
+                width: 58.33333%
+            }
+            .col-sm-8 {
+                flex: 0 0 auto;
+                width: 66.66667%
+            }
+            .col-sm-9 {
+                flex: 0 0 auto;
+                width: 75%
+            }
+            .col-sm-10 {
+                flex: 0 0 auto;
+                width: 83.33333%
+            }
+            .col-sm-11 {
+                flex: 0 0 auto;
+                width: 91.66667%
+            }
+            .col-sm-12 {
+                flex: 0 0 auto;
+                width: 100%
+            }
+        }
+
+        @media (min-width: 768px) {
+            .col-md {
+                flex: 1 0 0%
+            }
+            .col-md-auto {
+                flex: 0 0 auto;
+                width: auto
+            }
+            .col-md-1 {
+                flex: 0 0 auto;
+                width: 8.33333%
+            }
+            .col-md-2 {
+                flex: 0 0 auto;
+                width: 16.66667%
+            }
+            .col-md-3 {
+                flex: 0 0 auto;
+                width: 25%
+            }
+            .col-md-4 {
+                flex: 0 0 auto;
+                width: 33.33333%
+            }
+            .col-md-5 {
+                flex: 0 0 auto;
+                width: 41.66667%
+            }
+            .col-md-6 {
+                flex: 0 0 auto;
+                width: 50%
+            }
+            .col-md-7 {
+                flex: 0 0 auto;
+                width: 58.33333%
+            }
+            .col-md-8 {
+                flex: 0 0 auto;
+                width: 66.66667%
+            }
+            .col-md-9 {
+                flex: 0 0 auto;
+                width: 75%
+            }
+            .col-md-10 {
+                flex: 0 0 auto;
+                width: 83.33333%
+            }
+            .col-md-11 {
+                flex: 0 0 auto;
+                width: 91.66667%
+            }
+            .col-md-12 {
+                flex: 0 0 auto;
+                width: 100%
+            }
+        }
+
+        @media (min-width: 992px) {
+            .col-lg {
+                flex: 1 0 0%
+            }
+            .col-lg-auto {
+                flex: 0 0 auto;
+                width: auto
+            }
+            .col-lg-1 {
+                flex: 0 0 auto;
+                width: 8.33333%
+            }
+            .col-lg-2 {
+                flex: 0 0 auto;
+                width: 16.66667%
+            }
+            .col-lg-3 {
+                flex: 0 0 auto;
+                width: 25%
+            }
+            .col-lg-4 {
+                flex: 0 0 auto;
+                width: 33.33333%
+            }
+            .col-lg-5 {
+                flex: 0 0 auto;
+                width: 41.66667%
+            }
+            .col-lg-6 {
+                flex: 0 0 auto;
+                width: 50%
+            }
+            .col-lg-7 {
+                flex: 0 0 auto;
+                width: 58.33333%
+            }
+            .col-lg-8 {
+                flex: 0 0 auto;
+                width: 66.66667%
+            }
+            .col-lg-9 {
+                flex: 0 0 auto;
+                width: 75%
+            }
+            .col-lg-10 {
+                flex: 0 0 auto;
+                width: 83.33333%
+            }
+            .col-lg-11 {
+                flex: 0 0 auto;
+                width: 91.66667%
+            }
+            .col-lg-12 {
+                flex: 0 0 auto;
+                width: 100%
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .col-xl {
+                flex: 1 0 0%
+            }
+            .col-xl-auto {
+                flex: 0 0 auto;
+                width: auto
+            }
+            .col-xl-1 {
+                flex: 0 0 auto;
+                width: 8.33333%
+            }
+            .col-xl-2 {
+                flex: 0 0 auto;
+                width: 16.66667%
+            }
+            .col-xl-3 {
+                flex: 0 0 auto;
+                width: 25%
+            }
+            .col-xl-4 {
+                flex: 0 0 auto;
+                width: 33.33333%
+            }
+            .col-xl-5 {
+                flex: 0 0 auto;
+                width: 41.66667%
+            }
+            .col-xl-6 {
+                flex: 0 0 auto;
+                width: 50%
+            }
+            .col-xl-7 {
+                flex: 0 0 auto;
+                width: 58.33333%
+            }
+            .col-xl-8 {
+                flex: 0 0 auto;
+                width: 66.66667%
+            }
+            .col-xl-9 {
+                flex: 0 0 auto;
+                width: 75%
+            }
+            .col-xl-10 {
+                flex: 0 0 auto;
+                width: 83.33333%
+            }
+            .col-xl-11 {
+                flex: 0 0 auto;
+                width: 91.66667%
+            }
+            .col-xl-12 {
+                flex: 0 0 auto;
+                width: 100%
+            }
+        }
+
+        @media (min-width: 1400px) {
+            .col-xxl {
+                flex: 1 0 0%
+            }
+            .col-xxl-auto {
+                flex: 0 0 auto;
+                width: auto
+            }
+            .col-xxl-1 {
+                flex: 0 0 auto;
+                width: 8.33333%
+            }
+            .col-xxl-2 {
+                flex: 0 0 auto;
+                width: 16.66667%
+            }
+            .col-xxl-3 {
+                flex: 0 0 auto;
+                width: 25%
+            }
+            .col-xxl-4 {
+                flex: 0 0 auto;
+                width: 33.33333%
+            }
+            .col-xxl-5 {
+                flex: 0 0 auto;
+                width: 41.66667%
+            }
+            .col-xxl-6 {
+                flex: 0 0 auto;
+                width: 50%
+            }
+            .col-xxl-7 {
+                flex: 0 0 auto;
+                width: 58.33333%
+            }
+            .col-xxl-8 {
+                flex: 0 0 auto;
+                width: 66.66667%
+            }
+            .col-xxl-9 {
+                flex: 0 0 auto;
+                width: 75%
+            }
+            .col-xxl-10 {
+                flex: 0 0 auto;
+                width: 83.33333%
+            }
+            .col-xxl-11 {
+                flex: 0 0 auto;
+                width: 91.66667%
+            }
+            .col-xxl-12 {
+                flex: 0 0 auto;
+                width: 100%
+            }
+        }
+    </style>
+
+    <!-- style for page / header / footer -->
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            font-family: Poppins, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            background: #171719;
+            color: #ffffff
+        }
+
+        @media (max-width: 991px) {
+            html,
+            body {
+                font-size: 14px
+            }
+        }
+
+        svg {
+            vertical-align: middle
+        }
+
+        .nr-icon-20 {
+            width: 20px;
+            height: 20px;
+            line-height: 20px
+        }
+
+        .nr-icon-24 {
+            width: 24px;
+            height: 24px;
+            line-height: 24px
+        }
+
+        .nr-icon-32 {
+            width: 32px;
+            height: 32px;
+            line-height: 32px
+        }
+
+        .nr-icon-40 {
+            width: 40px;
+            height: 40px;
+            line-height: 40px
+        }
+
+        .nr-btn {
+            box-sizing: border-box;
+            position: relative;
+            -webkit-user-select: none;
+            user-select: none;
+            cursor: pointer;
+            outline: none;
+            border: none;
+            -webkit-tap-highlight-color: transparent;
+            display: inline-block;
+            white-space: nowrap;
+            text-decoration: none;
+            vertical-align: baseline;
+            text-align: center;
+            margin: 0;
+            min-width: 32px;
+            line-height: 36px;
+            padding: 0 16px;
+            border-radius: 10px;
+            overflow: visible;
+            color: rgba(0, 0, 0, 0.87);
+            background-color: transparent;
+            font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-size: 14px;
+            font-weight: 500;
+            transition: background 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), color 0.35s cubic-bezier(0.25, 0.8, 0.25, 1)
+        }
+
+        .nr-btn::-moz-focus-inner {
+            border: 0
+        }
+
+        .nr-btn:disabled {
+            cursor: default;
+            color: rgba(0, 0, 0, 0.38)
+        }
+
+        .nr-btn.dropdown-toggle:focus-visible,
+        .nr-btn:focus-visible {
+            box-shadow: 0 0 0 0.2rem rgba(148, 133, 233, 0.5)
+        }
+
+        .nr-btn:not(:disabled):hover {
+            background: rgba(0, 0, 0, 0.12);
+            color: rgba(0, 0, 0, 0.6)
+        }
+
+        .nr-btn:not(:disabled):active {
+            background: rgba(0, 0, 0, 0.07);
+            color: rgba(0, 0, 0, 0.6)
+        }
+
+        .btn-flat-primary {
+            background-color: #0078D4;
+            color: #ffffff
+        }
+
+        .btn-flat-primary:disabled {
+            background: #E3F2FD
+        }
+
+        .btn-flat-primary:not(:disabled):hover {
+            background: #134DCD;
+            color: rgba(255, 255, 255, 0.87);
+            transition: background, color 0.35s cubic-bezier(0.25, 0.8, 0.25, 1)
+        }
+
+        .btn-flat-primary:not(:disabled):active {
+            color: white;
+            background: #1a7bf9;
+            transition: background 0.35s cubic-bezier(0.25, 0.8, 0.25, 1)
+        }
+
+        .btn-link-indigo {
+            color: #0B1770
+        }
+
+        .btn-link-indigo:disabled {
+            background: transparent
+        }
+
+        .btn-link-indigo:not(:disabled):hover {
+            color: #134DCD
+        }
+
+        .btn-link-indigo:not(:disabled):active {
+            color: #0078D4
+        }
+
+        .btn-link-blue {
+            color: #0078D4
+        }
+
+        .btn-link-blue:disabled {
+            background: transparent
+        }
+
+        .btn-link-blue:not(:disabled):hover {
+            color: #0078D4
+        }
+
+        .btn-link-blue:not(:disabled):active {
+            color: #134DCD
+        }
+
+        .btn-link-white {
+            color: white;
+            padding: 0;
+            text-align: left
+        }
+
+        .btn-link-white:disabled {
+            background: rgba(0, 0, 0, 0.38)
+        }
+
+        .btn-link-white:not(:disabled):hover {
+            color: #7BBBEA;
+            background: transparent
+        }
+
+        .btn-link-white:not(:disabled):active {
+            color: #E5F1FF
+        }
+
+        .btn-link-white span {
+            font-weight: 500
+        }
+
+        .btn-outline-grey {
+            background: white;
+            border: 1px solid rgba(188, 193, 204, 0.5);
+            border-radius: 10px;
+            transition: background 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), color 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), border-color 0.35s cubic-bezier(0.25, 0.8, 0.25, 1)
+        }
+
+        .btn-outline-grey:disabled {
+            border: 1px solid rgba(0, 0, 0, 0.12)
+        }
+
+        .btn-outline-grey:not(:disabled):hover {
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            background: #E3F2FD
+        }
+
+        .btn-outline-grey:not(:disabled):active {
+            border: 1px solid rgba(0, 0, 0, 0.38)
+        }
+
+        .btn-link-indigo {
+            color: #0B1770;
+            text-decoration: underline !important;
+            padding: 0;
+            text-align: left;
+            font-weight: 500
+        }
+
+        .btn-link-indigo:disabled {
+            background: rgba(0, 0, 0, 0.38)
+        }
+
+        .btn-link-indigo:not(:disabled):hover {
+            color: #134DCD;
+            background: transparent
+        }
+
+        .btn-link-indigo:not(:disabled):active {
+            color: #0078D4
+        }
+
+        .btn-link-indigo span {
+            font-weight: 500
+        }
+
+        .btn-icon {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            padding: 0;
+            border-radius: 50%
+        }
+
+        svg {
+            fill: rgba(0, 0, 0, 0.87)
+        }
+
+        svg.icon-white {
+            fill: white
+        }
+
+        svg.icon-primary {
+            fill: #0078d4
+        }
+
+        svg.icon-indigo {
+            fill: #0b1770
+        }
+
+        svg.icon-danger {
+            fill: #eb4940
+        }
+
+        svg.icon-green {
+            fill: #16869F
+        }
+
+        svg.icon-purple {
+            fill: #913DFF
+        }
+
+        .text-normal {
+            color: rgba(0, 0, 0, 0.6)
+        }
+
+        .dropdown-toggle::after {
+            display: none !important;
+            visibility: hidden
+        }
+
+        .pw-download-android {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px 24px 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #F2F2F6;
+            color: #171719;
+            z-index: 2
+        }
+
+        .pw-download-android .nr-icon-24 {
+            width: 24px;
+            height: 24px
+        }
+
+        .pw-download-android .nr-icon-18 {
+            width: 18px;
+            height: 18px
+        }
+
+        .pw-download-android .android-logo {
+            width: 80px;
+            height: 80px;
+            padding: 19px;
+            background: #FFFFFF;
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            border-radius: 25px
+        }
+
+        .pw-download-android .android-logo .android-logo-icon {
+            width: 40px;
+            height: 40px
+        }
+
+        .pw-download-android .android-info {
+            width: calc(100% - 96px);
+            line-height: 24px;
+            font-weight: 400;
+            position: relative
+        }
+
+        .pw-download-android .android-info .android-title {
+            font-size: 16px
+        }
+
+        .pw-download-android .android-info .android-subTitle {
+            font-size: 14px;
+            letter-spacing: 0.15px
+        }
+
+        .pw-download-android .android-info .android-text {
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.1px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        .pw-download-android .android-info .android-close {
+            position: absolute;
+            top: 0;
+            right: 0
+        }
+
+        @media (max-width: 460px) {
+            .pw-download-android {
+                padding: 10px 16px 5px
+            }
+            .pw-download-android .android-info .android-title {
+                font-size: 14px
+            }
+            .pw-download-android .android-info .android-subTitle {
+                font-size: 12px
+            }
+            .pw-download-android .android-info .android-text {
+                font-size: 12px
+            }
+            .pw-download-android .android-info .android-close {
+                position: absolute;
+                top: 4px;
+                right: 4px;
+                width: 30px;
+                height: 30px;
+                line-height: 30px
+            }
+        }
+
+        @media (max-width: 390px) {
+            .pw-download-android {
+                padding: 10px 14px 5px
+            }
+            .pw-download-android .android-logo {
+                width: 60px;
+                height: 60px;
+                border-radius: 15px;
+                padding: 9px
+            }
+            .pw-download-android .android-info {
+                width: calc(100% - 70px)
+            }
+            .pw-download-android .android-info .android-close {
+                position: absolute;
+                top: 4px;
+                right: 4px;
+                width: 24px;
+                height: 24px;
+                line-height: 24px
+            }
+        }
+
+        @media (max-width: 350px) {
+            .pw-download-android {
+                padding: 10px 10px 5px
+            }
+            .pw-download-android .android-logo {
+                width: 44px;
+                height: 44px;
+                border-radius: 10px;
+                padding: 6px
+            }
+            .pw-download-android .android-logo .android-logo-icon {
+                width: 30px;
+                height: 30px
+            }
+            .pw-download-android .android-info {
+                width: calc(100% - 54px)
+            }
+            .pw-download-android .android-info .android-title {
+                font-size: 13px
+            }
+            .pw-download-android .android-info .android-subTitle {
+                font-size: 11px
+            }
+            .pw-download-android .android-info .android-text {
+                font-size: 11px
+            }
+        }
+
+        body.with-download {
+            padding-top: 126px
+        }
+
+        .pw-download-android~header {
+            position: relative;
+            z-index: 1
+        }
+
+        .main-container {
+            width: 100%
+        }
+
+        .main-container>section {
+            width: 100%;
+            padding: 44px;
+            margin: 12em auto
+        }
+
+        @media (max-width: 991px) {
+            .main-container>section {
+                margin: 8em auto
+            }
+        }
+
+        @media (max-width: 767px) {
+            .main-container>section {
+                padding: 44px 24px
+            }
+        }
+
+        @media (max-width: 575px) {
+            .main-container>section {
+                margin: 4em auto
+            }
+        }
+
+        @media (min-width: 1440px) {
+            .main-container {
+                display: block;
+                width: 1440px;
+                margin: 0 auto
+            }
+        }
+
+        .main-container>section.nr-home-ai {
+            margin-top: 0
+        }
+
+        header {
+            width: 100%;
+            padding: 16px;
+            background: #171719;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline
+        }
+
+        .nr-logo-wrapper {
+            display: inline-block;
+            color: white;
+            text-decoration: none
+        }
+
+        .nr-logo-wrapper .logo-icon {
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            margin: 0;
+            padding: 0;
+            vertical-align: baseline
+        }
+
+        .nr-logo-wrapper span {
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 50px;
+            letter-spacing: -0.36px
+        }
+
+        header .nr-btn:not(.btn-icon) {
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 50px;
+            letter-spacing: 1.25px;
+            text-transform: capitalize
+        }
+
+        header .nr-header-left .nr-btn {
+            margin-left: 16px
+        }
+
+        header .nr-header-right>.nr-btn {
+            margin-right: 16px
+        }
+
+        header .nr-btn svg {
+            vertical-align: middle
+        }
+
+        header .btn-menu {
+            display: none
+        }
+
+        header div .dropdown,
+        header div .dropdown-center {
+            display: inline-block
+        }
+
+        @media (max-width: 1199px) {
+            header .nr-btn:not(.btn-icon) {
+                font-size: 16px;
+                line-height: 42px;
+                letter-spacing: 1px
+            }
+            header .nr-header-left .nr-btn {
+                margin-left: 12px
+            }
+            header .nr-header-right>.nr-btn {
+                margin-right: 12px
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                align-items: center
+            }
+            header .nr-logo-wrapper {
+                width: 40px;
+                height: 40px;
+                padding: 8px
+            }
+            header .nr-logo-wrapper span {
+                display: none
+            }
+            header .nr-logo-wrapper .logo-icon {
+                width: 24px;
+                height: 24px
+            }
+        }
+
+        @media (max-width: 575px) {
+            header .nr-btn,
+            header .nr-logo-wrapper span {
+                display: none
+            }
+            header .btn-menu,
+            header .btn-close {
+                display: block
+            }
+            .nr-header-left .nr-more-dropdown,
+            .nr-start-dropdown {
+                display: none
+            }
+            .nr-header-right .nr-menu-dropdown .more-dropdown-menu.show {
+                position: fixed !important;
+                inset: 0 !important;
+                width: 100vw;
+                height: 100vh;
+                transform: none !important
+            }
+        }
+
+        .nr-text-primary {
+            color: #0078D4
+        }
+
+        .dropdown-menu {
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(15px)
+        }
+
+        .dropdown-item {
+            white-space: normal
+        }
+
+        .header-dropdown-title {
+            color: #FFF;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 24px;
+            letter-spacing: 0.5px
+        }
+
+        .header-item-text {
+            color: #FFF;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 14px;
+            letter-spacing: 0.5px
+        }
+
+        .nr-more-dropdown .dropdown-toggle.show {
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            color: rgba(0, 0, 0, 0.8);
+            padding: 0 10px
+        }
+
+        .more-dropdown-menu {
+            padding: 24px 12px
+        }
+
+        .nr-more-content {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap
+        }
+
+        .nr-more-content>div {
+            width: 200px
+        }
+
+        li.header-dropdown-title {
+            text-transform: uppercase;
+            padding-left: 14px
+        }
+
+        .nr-more-content li,
+        .start-dropdown-menu li {
+            margin-bottom: 1.5em
+        }
+
+        .start-dropdown-menu {
+            width: 190px;
+            padding-top: 1.5em
+        }
+
+        @media (max-width: 767px) {
+            .nr-more-content>div {
+                width: 100%
+            }
+        }
+
+        @media (max-width: 575px) {
+            .more-dropdown-menu {
+                padding: 0;
+                border-radius: 0
+            }
+            .nr-more-content {
+                padding: 20px
+            }
+            .nr-more-content li,
+            .start-dropdown-menu li {
+                margin-bottom: 1em
+            }
+        }
+
+        footer {
+            width: 100%;
+            padding: 16px;
+            background: #E6F2FC;
+            color: rgba(0, 0, 0, 0.82)
+        }
+
+        .nr-copyright {
+            color: rgba(0, 0, 0, 0.82);
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: 26px
+        }
+
+        .nr-footer-content {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap
+        }
+
+        .nr-footer-left {
+            flex-shrink: 0
+        }
+
+        .nr-footer-right {
+            flex-grow: 1;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            color: rgba(0, 0, 0, 0.82);
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 36px
+        }
+
+        .nr-footer-title {
+            font: inherit;
+            color: inherit;
+            font-weight: 700;
+            margin-top: 12px;
+            text-transform: capitalize;
+            text-decoration: inherit
+        }
+
+        .nr-footer-links {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 5px
+        }
+
+        .nr-footer-links li a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        .nr-footer-links li a:hover {
+            color: #134DCD;
+            text-decoration: underline
+        }
+
+        .nr-show-sm {
+            display: none
+        }
+
+        @media (max-width: 991px) {
+            .nr-footer-right {
+                font-size: 16px;
+                padding: 0 16px;
+                justify-content: space-between
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nr-footer-content {
+                display: block
+            }
+            .nr-footer-left {
+                margin-bottom: 1em
+            }
+        }
+
+        @media (max-width: 575px) {
+            .nr-hidden-sm {
+                display: none
+            }
+            .nr-show-sm {
+                display: flex;
+                justify-content: flex-start;
+                padding: 0 8px
+            }
+            .nr-footer-titles {
+                width: 140px;
+                flex-shrink: 0
+            }
+            .nr-footer-titles .nr-footer-title {
+                margin: 0;
+                cursor: pointer
+            }
+            .nr-footer-titles .nr-footer-title:hover span {
+                text-decoration: underline
+            }
+            .nr-footer-titles .nr-footer-title>span {
+                display: inline-block
+            }
+            .nr-footer-titles .nr-footer-title svg.nr-icon-20 {
+                display: none;
+                transform: rotate(-90deg)
+            }
+            .nr-footer-titles .nr-footer-title[aria-expanded="true"] {
+                color: #0078d4
+            }
+            .nr-footer-titles .nr-footer-title[aria-expanded="true"] svg.nr-icon-20 {
+                display: inline-block
+            }
+            .nr-footer-pages {
+                width: calc(100% - 140px)
+            }
+            .nr-footer-pages .nr-footer-links {
+                margin: 0
+            }
+        }
+
+        @media (max-width: 460px) {
+            .nr-footer-right {
+                font-size: 14px
+            }
+            .nr-footer-titles {
+                width: 110px
+            }
+            .nr-footer-pages {
+                width: calc(100% - 110px)
+            }
+        }
+    </style>
+
+    <!-- style for comm text -->
+    <style>
+        .nr-title-1 {
+            color: #E5F1FF;
+            text-align: center;
+            font-size: 64px;
+            font-weight: 400;
+            letter-spacing: 0.25px
+        }
+
+        .nr-title-2 {
+            text-align: center;
+            font-size: 172px;
+            font-weight: 600;
+            line-height: 1.87
+        }
+
+        .nr-title-3 {
+            margin-bottom: 1em;
+            text-align: center;
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 1.76;
+            letter-spacing: -0.5px
+        }
+
+        .nr-main-text {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 500;
+            line-height: 1.5
+        }
+
+        .nr-btn-start {
+            display: block;
+            margin: 2.5rem auto;
+            width: fit-content;
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1.29;
+            letter-spacing: -0.726px
+        }
+
+        @media (max-width: 1399px) {
+            .nr-title-1,
+            .nr-title-3 {
+                font-size: 60px
+            }
+            .nr-title-2 {
+                font-size: 140px
+            }
+            .nr-main-text {
+                font-size: 30px
+            }
+            .nr-btn-start {
+                font-size: 26px
+            }
+        }
+
+        @media (max-width: 1199px) {
+            .nr-title-1,
+            .nr-title-3 {
+                font-size: 58px
+            }
+            .nr-title-2 {
+                font-size: 120px
+            }
+            .nr-main-text {
+                font-size: 28px
+            }
+            .nr-btn-start {
+                font-size: 24px
+            }
+        }
+
+        @media (max-width: 991px) {
+            .nr-title-1,
+            .nr-title-3 {
+                font-size: 44px
+            }
+            .nr-title-2 {
+                font-size: 90px
+            }
+            .nr-main-text {
+                font-size: 26px
+            }
+            .nr-btn-start {
+                font-size: 20px
+            }
+        }
+
+        @media (max-width: 767px) {
+            .nr-title-1,
+            .nr-title-3 {
+                font-size: 36px
+            }
+            .nr-title-2 {
+                font-size: 60px
+            }
+            .nr-main-text {
+                font-size: 24px
+            }
+            .nr-btn-start {
+                font-size: 18px
+            }
+        }
+
+        @media (max-width: 575px) {
+            .nr-title-1,
+            .nr-title-3 {
+                font-size: 28px
+            }
+            .nr-title-2 {
+                font-size: 42px
+            }
+            .nr-main-text {
+                font-size: 20px
+            }
+            .nr-btn-start {
+                font-size: 16px
+            }
+        }
+
+        @media (max-width: 455px) {
+            .nr-title-1,
+            .nr-title-3 {
+                font-size: 20px
+            }
+            .nr-title-2 {
+                font-size: 34px
+            }
+            .nr-main-text {
+                font-size: 16px
+            }
+            .nr-btn-start {
+                font-size: 14px
+            }
+        }
+
+        .nr-language-menu .dropdown-item {
+            font-size: 16px
+        }
+    </style>
+    <!-- style for nr-home-ai -->
+    <style>
+        .nr-hidden {
+            display: none;
+            visibility: hidden
+        }
+
+        .nr-home-ai .nr-language-dropdown {
+            width: 100%;
+            max-width: 335px;
+            margin: 1rem auto 2rem
+        }
+
+        .nr-home-ai .nr-language-dropdown .dropdown-toggle {
+            width: 100%;
+            font-size: 16px;
+            border-radius: 5px;
+            color: white;
+            border: 1px solid #FFF;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%)
+        }
+
+        .nr-language-menu {
+            max-height: 50vh;
+            overflow-y: auto
+        }
+
+        .nr-voices-samples {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        .nr-voices-map {
+            width: calc(100% - 80px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto
+        }
+
+        .voice-item {
+            flex-shrink: 1;
+            width: calc(25% - 40px);
+            margin: 0 20px;
+            max-width: 260px;
+            padding: 14px;
+            border-radius: 24px;
+            border: 1px solid #ffffff;
+            background: linear-gradient(144deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+            cursor: pointer
+        }
+
+        .voice-item .voice-icon {
+            display: block;
+            width: 118px;
+            height: 118px;
+            border-radius: 50%;
+            margin: 10px auto
+        }
+
+        .voice-item .voice-text {
+            width: 100%;
+            text-align: center;
+            color: #ffffff;
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 1
+        }
+
+        .voice-item .voice-wave {
+            width: 100%;
+            height: 32px
+        }
+
+        .voice-item .voice-wave .nr-icon-play {
+            width: 26px;
+            height: 26px;
+            margin: 3px auto 0
+        }
+
+        .voice-item .voice-wave .nr-icon-wave {
+            width: 100%;
+            height: 100%;
+            display: none
+        }
+
+        .voice-item:hover {
+            border-color: #B8DCF5
+        }
+
+        .voice-item:hover .voice-text {
+            color: #B8DCF5
+        }
+
+        .voice-item.playing {
+            width: calc(34% - 40px);
+            max-width: calc(34% - 40px);
+            box-shadow: 0px 0px 30px 0px rgba(255, 255, 255, 0.5);
+            border: 3px solid #B8DCF5
+        }
+
+        .voice-item.playing .voice-text {
+            color: #ffffff
+        }
+
+        .voice-item.playing .voice-wave .nr-icon-play {
+            display: none
+        }
+
+        .voice-item.playing .voice-wave svg {
+            display: block;
+            animation: loadwave 0.8s linear infinite
+        }
+
+        #com-load-small {
+            display: none
+        }
+
+        @media (max-width: 1299px) {
+            .voice-item {
+                width: calc(25% - 20px);
+                margin: 0 10px
+            }
+            .voice-item .voice-icon {
+                width: 88px;
+                height: 88px
+            }
+            .voice-item .voice-text {
+                font-size: 20px
+            }
+        }
+
+        @media (max-width: 991px) {
+            .voice-item .voice-icon {
+                width: 68px;
+                height: 68px
+            }
+            .voice-item .voice-text {
+                font-size: 16px
+            }
+        }
+
+        @media (max-width: 767px) {
+            .nr-voices-samples>.btn-icon {
+                display: none !important
+            }
+            .voice-item .voice-icon {
+                width: 68px;
+                height: 68px
+            }
+            .voice-item .voice-text {
+                font-size: 20px
+            }
+            #com-load-small {
+                display: block;
+                margin: 14px auto
+            }
+            .nr-voices-map {
+                width: 100%;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                flex-direction: column
+            }
+            .voice-item {
+                width: 100%;
+                max-width: 360px;
+                display: flex;
+                align-items: center;
+                margin: 14px auto
+            }
+            .voice-item .voice-icon {
+                width: 80px;
+                height: 80px
+            }
+            .voice-item.playing {
+                width: 100%;
+                max-width: 360px
+            }
+            .voice-item .voice-wave {
+                width: 100%;
+                height: 32px;
+                padding-top: 6px
+            }
+            .voice-item .voice-wave .nr-icon-wave {
+                width: 100%;
+                height: 24px
+            }
+            .voice-item .voice-wave .nr-icon-play {
+                width: 24px;
+                height: 24px
+            }
+        }
+
+        @media (max-width: 575px) {
+            .voice-item .voice-icon {
+                width: 64px;
+                height: 64px
+            }
+            .nr-home-ai .nr-language-dropdown .dropdown-toggle {
+                font-size: 14px
+            }
+        }
+
+        @-webkit-keyframes loadwave {
+            0% {
+                transform: scaleY(0.3);
+                opacity: 1
+            }
+            60% {
+                transform: scaleY(1.3);
+                opacity: 0.4
+            }
+            100% {
+                transform: scaleY(0.5);
+                opacity: 1
+            }
+        }
+
+        @keyframes loadwave {
+            0% {
+                transform: scaleY(0.3);
+                opacity: 1
+            }
+            60% {
+                transform: scaleY(1.3);
+                opacity: 0.4
+            }
+            100% {
+                transform: scaleY(0.5);
+                opacity: 1
+            }
+        }
+    </style>
+
+    <style>
+        .com-video-card {
+            position: relative;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16 / 9;
+            border-radius: 10px;
+            margin: 2.5em 0
+        }
+
+        .com-video-card .com-video-item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16 / 9;
+            border-radius: 10px;
+            display: none
+        }
+
+        .com-video-card .com-video-status {
+            position: relative;
+            width: 100%;
+            cursor: pointer
+        }
+
+        .com-video-card .com-video-status>img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16 / 9
+        }
+
+        .com-video-card.playing .com-video-status {
+            opacity: 0
+        }
+
+        .com-video-card.playing .com-video-item {
+            display: block
+        }
+    </style>
+
+</head>
+
+<body class="with-download">
+    <div class="pw-download-android nr-hidden" id="pw-download-android">
+        <svg width="0" height="0" style="display: none; visibility:hidden;">
+            <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 19" id="half_star">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M10 0L7.19 6.63L0 7.24L5.46 11.97L3.82 19L10 15.27V0Z"
+                    fill="#F3B458"></path>
+            </symbol>
+            <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="full_star">
+                <path d="M12 17.77L18.18 21.5L16.54 14.47L22 9.74L14.81 9.13L12 2.5L9.19 9.13L2 9.74L7.46 14.47L5.82 21.5L12 17.77Z"
+                    fill="#F3B458"></path>
+            </symbol>
+        </svg>
+        <div class="android-logo">
+            <svg class="android-logo-icon icon-primary">
+                <use xlink:href="#nr_logo"></use>
+            </svg>
+        </div>
+        <div class="android-info">
+            <div class="android-title">NaturalReader - Text to Speech</div>
+            <div class="android-subTitle">NaturalSoft Limited</div>
+            <div class="android-start">
+                <svg class="nr-icon-24">
+                    <use xlink:href="#full_star"></use>
+                </svg>
+                <svg class="nr-icon-24">
+                    <use xlink:href="#full_star"></use>
+                </svg>
+                <svg class="nr-icon-24">
+                    <use xlink:href="#full_star"></use>
+                </svg>
+                <svg class="nr-icon-24">
+                    <use xlink:href="#full_star"></use>
+                </svg>
+                <svg class="nr-icon-18">
+                    <use xlink:href="#half_star"></use>
+                </svg>
+            </div>
+            <div class="android-text">
+                <div class="pw-text-normal">Get on the App Store</div>
+                <button class="nr-btn btn-link-blue" onclick="openDownload()">
+                    Download
+                </button>
+            </div>
+            <button class="android-close nr-btn btn-icon" onclick="closeDownload()" aria-label="close Download button">
+                <svg class="nr-icon-18">
+                    <use xlink:href="#nr_close"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- <div class="main-container">
+        <header id="nr_main_header">
+            <div class="nr-header-left">
+                <a href="./index.html" class="nr-logo-wrapper" aria-label="go to NaturalReader">
+                    <svg class="logo-icon icon-white" alt="NaturalReader Logo">
+                        <use xlink:href="#nr_logo"></use>
+                    </svg>
+                    <span>aturalReader</span>
+                </a>
+                <a class="nr-btn btn-link-white" href="./webapp.html">
+                    Personal
+                </a>
+                <a class="nr-btn btn-link-white" href="./commercial.html">
+                    Commercial
+                </a>
+                <div class="dropdown-center nr-more-dropdown">
+                    <button class="nr-btn btn-link-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        More
+                    </button>
+                    <ul class="dropdown-menu more-dropdown-menu" data-bs-theme="dark">
+                        <div class="nr-more-content">
+                            <div class="more-products">
+                                <li class="header-dropdown-title">PRODUCTS</li>
+                                <li>
+                                    <a class="dropdown-item" href="./webapp.html">
+                                        <div class="header-dropdown-title">Personal</div>
+                                        <div class="header-item-text">
+                                            Listen to your documents
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="./commercial.html">
+                                        <div class="header-dropdown-title">Commercial</div>
+                                        <div class="header-item-text">
+                                            Create voiceovers for professional use
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="./edu.html">
+                                        <div class="header-dropdown-title">EDU</div>
+                                        <div class="header-item-text">
+                                            Group plans for personal use
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="./appdownload.html">
+                                        <div class="header-dropdown-title">Mobile</div>
+                                        <div class="header-item-text">
+                                            For Android and iOS
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="./chrome_ext.html">
+                                        <div class="header-dropdown-title">Chrome Extension</div>
+                                        <div class="header-item-text">
+                                            Listen to webpages directly
+                                        </div>
+                                    </a>
+                                </li>
+                            </div>
+                            <!-- <div class="more-technology">
+                                <li class="header-dropdown-title">TECHNOLOGY</li>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <div class="header-dropdown-title">AI Voices</div>
+                                        <div class="header-item-text">
+                                            Realistic voices using deep learning and neural networks
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <div class="header-dropdown-title">LLM Voices</div>
+                                        <div class="header-item-text">
+                                            Next generation AI voices using large language models
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <div class="header-dropdown-title">Voice Cloning</div>
+                                        <div class="header-item-text">
+                                            Synthetic voice replication using LLM
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <div class="header-dropdown-title">AskAI</div>
+                                        <div class="header-item-text">
+                                            ChatGPT-powered assistant
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <div class="header-dropdown-title">PDFAI</div>
+                                        <div class="header-item-text">
+                                            Smart document filtering
+                                        </div>
+                                    </a>
+                                </li>
+                            </div> -->
+                        </div>
+                    </ul>
+                </div>
+            </div>
+            <div class="nr-header-right">
+                <div class="dropdown nr-start-dropdown">
+                    <button class="nr-btn btn-flat-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="go to each product button">
+                        <span>Get Started</span>
+                        <svg class="nr-icon-20 icon-white" alt="arrow down">
+                            <use xlink:href="#chevron-down-white"></use>
+                        </svg>
+                    </button>
+                    <ul class="dropdown-menu start-dropdown-menu" data-bs-theme="dark">
+                        <li>
+                            <a class="dropdown-item" href="./online/" target="_blank">
+                                <div class="header-dropdown-title">
+                                    Personal
+                                </div>
+                                <div class="header-item-text">
+                                    Listen to your documents
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="./commercial/" target="_blank">
+                                <div class="header-dropdown-title">
+                                    Commercial
+                                </div>
+                                <div class="header-item-text">
+                                    Create voiceovers for professional use
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="./edu.html" target="_blank">
+                                <div class="header-dropdown-title">
+                                    EDU
+                                </div>
+                                <div class="header-item-text">
+                                    Group plans for personal use
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="dropdown nr-menu-dropdown">
+                    <button class="nr-btn btn-icon btn-menu dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="open menu for products button">
+                        <svg class="nr-icon-24 icon-white" alt="menu">
+                            <use xlink:href="#nr_menu"></use>
+                        </svg>
+                    </button>
+                    <ul class="dropdown-menu more-dropdown-menu" data-bs-theme="dark">
+                        <div class="d-flex justify-content-end" style="padding-right: 16px;">
+                            <button class="nr-btn btn-icon btn-close">
+                                <svg class="nr-icon-24 icon-white" alt="close dropdown">
+                                    <use xlink:href="#nr_close"></use>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="nr-more-content">
+                            <div class="more-products">
+                                <li class="header-dropdown-title">PRODUCTS</li>
+                                <li>
+                                    <a class="dropdown-item" href="./webapp.html">
+                                        <div class="header-dropdown-title">Personal</div>
+                                        <div class="header-item-text">
+                                            Listen to your documents
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="./commercial.html">
+                                        <div class="header-dropdown-title">Commercial</div>
+                                        <div class="header-item-text">
+                                            Create voiceovers for professional use
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="./edu.html">
+                                        <div class="header-dropdown-title">EDU</div>
+                                        <div class="header-item-text">
+                                            Group plans for personal use
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="./appdownload.html">
+                                        <div class="header-dropdown-title">Mobile</div>
+                                        <div class="header-item-text">
+                                            For Android and iOS
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="./chrome_ext.html">
+                                        <div class="header-dropdown-title">Chrome Extension</div>
+                                        <div class="header-item-text">
+                                            Listen to webpages directly
+                                        </div>
+                                    </a>
+                                </li>
+                            </div>
+                            <!-- <div class="more-technology">
+                                <li class="header-dropdown-title">TECHNOLOGY</li>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <div class="header-dropdown-title">AI Voices</div>
+                                        <div class="header-item-text">
+                                            Realistic voices using deep learning and neural networks
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <div class="header-dropdown-title">LLM Voices</div>
+                                        <div class="header-item-text">
+                                            Next generation AI voices using large language models
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <div class="header-dropdown-title">Voice Cloning</div>
+                                        <div class="header-item-text">
+                                            Synthetic voice replication using LLM
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <div class="header-dropdown-title">AskAI</div>
+                                        <div class="header-item-text">
+                                            ChatGPT-powered assistant
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <div class="header-dropdown-title">PDFAI</div>
+                                        <div class="header-item-text">
+                                            Smart document filtering
+                                        </div>
+                                    </a>
+                                </li>
+                            </div> -->
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <section class="nr-home-ai">
+            <div id="jquery_jplayer_1"></div>
+            <div class="nr-title-1">AI Text to Speech</div>
+            <div class="nr-title-2">NaturalReader</div>
+            <div class="dropdown nr-language-dropdown">
+                <button class="nr-btn btn-language dropdown-toggle" id="language-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span id="language-text">Choose Language</span>
+                    <svg class="nr-icon-20">
+                        <use xlink:href="#chevron-down-white"></use>
+                    </svg>
+                </button>
+                <div class="dropdown-menu nr-language-menu" data-bs-theme="dark" id="language-menu"></div>
+            </div>
+
+            <div class="nr-voices-samples">
+                <button class="nr-btn btn-icon" id="com-load-less">
+                    <svg class="nr-icon-40 icon-white">
+                        <use xlink:href="#nr_chevron_left"></use>
+                    </svg>
+                </button>
+                <div class="nr-voices-map" id="voice-menu">
+                    <button class="nr-btn voice-item">
+                        <img class="voice-icon lazyload" data-src="https://wwwnaturalreaderscom.s3.amazonaws.com/comm2022-portraits/english/Davis.jpg" alt="">
+                        <div class="voice-text">
+                            <div class="voice-name">Name</div>
+                            <div class="voice-wave"></div>
+                        </div>
+                    </button>
+                </div>
+                <button class="nr-btn btn-icon" id="com-load-more">
+                    <svg class="nr-icon-40 icon-white">
+                        <use xlink:href="#nr_chevron_right"></use>
+                    </svg>
+                </button>
+            </div>
+
+            <button class="nr-btn btn-icon" id="com-load-small" aria-label="load more voice button">
+                <svg class="nr-icon-40 icon-white">
+                    <use xlink:href="#chevron-down-white"></use>
+                </svg>
+            </button>
+
+            <a class="nr-btn btn-link-white nr-btn-start d-block" href="./online/" target="_blank">
+                Get Started for Free  →
+            </a>
+        </section>
+
+        <section class="nr-home-trusted">
+            <div class="home-trusted-bg"></div>
+            <div class="nr-title-3">Trusted by 10 Million Users</div>
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-6 col-sm-4 col-lg-3">
+                        <img class="lazyload" data-src="./comfiles/index/img/h1_1.webp" alt="">
+                    </div>
+                    <div class="col-6 col-sm-4 col-lg-3">
+                        <img class="lazyload" data-src="./comfiles/index/img/h1_2.webp" alt="">
+                    </div>
+                    <div class="col-6 col-sm-4 col-lg-3">
+                        <img class="lazyload" data-src="./comfiles/index/img/h1_3.webp" alt="">
+                    </div>
+                    <div class="col-6 col-sm-4 col-lg-3">
+                        <img class="lazyload" data-src="./comfiles/index/img/h1_4.webp" alt="">
+                    </div>
+                    <div class="col-6 col-sm-4 col-lg-3">
+                        <img class="lazyload" data-src="./comfiles/index/img/h1_5.webp" alt="">
+                    </div>
+                    <div class="col-6 col-sm-4 col-lg-3">
+                        <img class="lazyload" data-src="./comfiles/index/img/h1_6.webp" alt="">
+                    </div>
+                    <div class="col-6 col-sm-4 col-lg-3">
+                        <img class="lazyload" data-src="./comfiles/index/img/h1_7.webp" alt="">
+                    </div>
+                    <div class="col-6 col-sm-4 col-lg-3">
+                        <img class="lazyload" data-src="./comfiles/index/img/h1_8.webp" alt="">
+                    </div>
+                </div>
+            </div>
+            <div>
+
+            </div>
+        </section>
+
+        <section class="nr-home-features">
+            <div class="nr-title-3">A.I. Features</div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 col-sm-6">
+                        <div class="home-features-card">
+                            <div class="features-card-img">
+                                <img class="w-100 lazyload" data-src="./comfiles/index/img/h2_1.webp" alt="">
+                            </div>
+                            <div class="features-card-text">
+                                <div class="features-card-title">
+                                    AI Text to Speech
+                                </div>
+                                <div>
+                                    Have any type of text read aloud with the most natural AI voices.
+                                </div>
+                            </div>
+                            <!-- <button class="nr-btn btn-link-white">
+                                Learn More  →
+                            </button> -->
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <div class="home-features-card">
+                            <div class="features-card-img">
+                                <img class="w-100 lazyload" data-src="./comfiles/index/img/h2_2.webp" alt="">
+                            </div>
+                            <div class="features-card-text">
+                                <div class="features-card-title">
+                                    LLM
+                                </div>
+                                <div>
+                                    New multi-lingual voices powered by Large Language Models
+                                </div>
+                            </div>
+                            <!-- <button class="nr-btn btn-link-white">
+                                Learn More  →
+                            </button> -->
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <div class="home-features-card">
+                            <div class="features-card-img">
+                                <img class="w-100 features-img-3 lazyload" data-src="./comfiles/index/img/h2_3.webp" alt="">
+                            </div>
+                            <div class="features-card-text">
+                                <div class="features-card-title">
+                                    Voice Cloning
+                                </div>
+                                <div>
+                                    Clone any voice instantly using AI
+                                </div>
+                            </div>
+                            <!-- <button class="nr-btn btn-link-white">
+                                Learn More  →
+                            </button> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="nr-home-formats">
+            <div class="nr-title-3">Supports PDF and 20+ Formats</div>
+            <div class="home-formats-content w-100">
+                <img class="w-100 lazyload" data-src="./comfiles/index/img/h3.webp" alt="">
+                <!-- <div class="com-video-card" id="sf_video_card">
+                    <div class="com-video-status nr-sf" data-target="sf_video" data-parent="#sf_video_card" style="aspect-ratio: 1382/974;">
+                        <img src="./comfiles/index/img/h3.webp" alt="Supports PDF and 20+ Formats Preivew" style="aspect-ratio: 1382/974;">
+                    </div>
+                    <video id="sf_video" class="com-video-item" preload="none" controls
+                    src="https://wwwnaturalreaderscom.s3.amazonaws.com/videos/comm2022/studio_editor.mp4"
+                    data-poster="./comfiles/index/img/h3.webp">
+                        <span>not support video</span>
+                    </video>
+                </div> -->
+            </div>
+        </section>
+
+        <section class="nr-home-language">
+            <div class="home-language-bg"></div>
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-12 col-sm-7">
+                        <div class="nr-title-3">50+ Languages and 200+ A.I. Voices</div>
+                    </div>
+                    <div class="col-12 col-sm-5">
+                        <div class="w-100">
+                            <img class="home-language-img lazyload" data-src="./comfiles/index/img/h4.webp" alt="">
+                            <!-- <div class="com-video-card" id="la_video_card">
+                                <div class="com-video-status nr-la" data-target="la_video" data-parent="#la_video_card" style="aspect-ratio: 584/961;">
+                                    <img src="./comfiles/index/img/h4.webp" alt="50+ Languages and 200+ A.I. Voices Preivew" style="aspect-ratio: 584/961;">
+                                </div>
+                                <video id="la_video" class="com-video-item" preload="none" controls
+                                src="https://wwwnaturalreaderscom.s3.amazonaws.com/videos/comm2022/studio_editor.mp4"
+                                data-poster="./comfiles/index/img/h4.webp" style="aspect-ratio: 584/961;">
+                                    <span>not support video</span>
+                                </video>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="nr-home-technology">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-12 col-sm-5">
+                        <div class="w-100">
+                            <img class="home-technology-img lazyload" data-src="./comfiles/index/img/h5.webp" alt="">
+                            <!-- <div class="com-video-card" id="eat_video_card">
+                                <div class="com-video-status nr-eat" data-target="eat_video" data-parent="#eat_video_card" style="aspect-ratio: 441/912;">
+                                    <img src="./comfiles/index/img/h5.webp" alt="50+ Languages and 200+ A.I. Voices Preivew" style="aspect-ratio: 441/912;">
+                                </div>
+                                <video id="eat_video" class="com-video-item" preload="none" controls
+                                src="https://wwwnaturalreaderscom.s3.amazonaws.com/videos/comm2022/studio_editor.mp4"
+                                data-poster="./comfiles/index/img/h5.webp" style="aspect-ratio: 441/912;">
+                                    <span>not support video</span>
+                                </video>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-7">
+                        <div class="nr-title-3">Enhanced Assistive Technology</div>
+                        <div class="nr-main-text">Text-to-speech applications built with AI features to enhance accessibility.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="nr-home-voice-style">
+            <div class="nr-title-3">Multiple Voice Styles</div>
+            <div class="nr-vs-voice">
+                <div class="voice-styles" id="com-voice-styles"></div>
+                <!-- <div class="voice-styles">
+                    <button class="nr-btn voice-styles-item">
+                        <img class="nr-voice-img lazyloaded"
+                            data-src="https://wwwnaturalreaderscom.s3.amazonaws.com/images/voicestyle/Friendly.jpg" alt=""
+                            src="https://wwwnaturalreaderscom.s3.amazonaws.com/images/voicestyle/Friendly.jpg">
+                        <div class="nr-voice-info">
+                            <div class="voice-name">Friendly</div>
+                            <svg class="nr-icon-play">
+                                <use xlink:href="#nr_volume"></use>
+                            </svg>
+                            <svg class="nr-icon-wave">
+                                <use xlink:href="#pw_load_wave"></use>
+                            </svg>
+                        </div>
+                    </button>
+                </div> -->
+            </div>
+        </section>
+
+        <section class="nr-home-voice-studio">
+            <div class="nr-title-3">A.I. Voice generator Studio</div>
+            <div class="nr-main-text">
+                Create voiceover audio from text, with super-realistic LLM AI Voices. For commercial use: perfect for Youtube, training, eLearning, audiobooks, and any other public or business use.
+            </div>
+            <div class="com-video-card" id="se_video_card">
+                <div class="com-video-status nr-se" data-target="se_video" data-parent="#se_video_card" style="aspect-ratio: 1069/551;">
+                    <img class="lazyload" data-src="./comfiles/index/img/se.webp" alt="Studio Editor Preivew" style="aspect-ratio: 1069/551;">
+                </div>
+                <video id="se_video" class="com-video-item" preload="none" controls src="https://wwwnaturalreaderscom.s3.amazonaws.com/videos/comm2022/commercial_overview.mp4" data-poster="./comfiles/index/img/se.webp">
+                    <span>not support video</span>
+                </video>
+            </div>
+            <a class="nr-btn btn-link-white nr-btn-start" href="./commercial/" target="_blank" style="display: block;">
+                Try A.I. Voice Generator  →
+            </a>
+        </section>
+
+        <section class="nr-home-awareness">
+            <div class="nr-title-3">Content Awareness</div>
+            <div class="nr-main-text">
+                Our AI voices are no longer just reading your text aloud, they actually understand your script. Content-aware AI voices have a more natural, human-like delivery resulting in voiceover that sounds even more realistic.
+            </div>
+            <div class="com-video-card" id="ca_video_card">
+                <div class="com-video-status nr-ca" data-target="ca_video" data-parent="#ca_video_card" style="aspect-ratio: 1157/595;">
+                    <img class="lazyload" data-src="./comfiles/index/img/h6.webp" alt="Content Awareness Preivew" style="aspect-ratio: 1157/595;">
+                </div>
+                <video id="ca_video" class="com-video-item" preload="none" controls src="https://wwwnaturalreaderscom.s3.amazonaws.com/videos/comm2022/content_aware.mp4" data-poster="./comfiles/index/img/h6.webp">
+                    <span>not support video</span>
+                </video>
+            </div>
+        </section>
+
+        <section class="nr-home-llm">
+            <div class="nr-title-3">LLM Voices</div>
+            <div class="nr-main-text">
+                <div>
+                    LLM AI voices are built on next-generation AI technology.
+                </div>
+                <div>
+                    LLM AI voices are unique, high quality, content-aware and mulitlingual across 28 languages.
+                </div>
+            </div>
+            <div class="home-llm-map" id="home-llm-map"></div>
+            <!-- <div class="home-llm-map">
+                <div class="llm-voice-card" id="LLM_Dorothy" data-voice="Dorothy" data-style="E-Learning">
+                    <div class="llm-voice-icon">
+                        <img src="https://wwwnaturalreaderscom.s3.amazonaws.com/comm2022-portraits/el/Dorothy.jpg" alt="">
+                        <div class="llm-voice-flag">
+                            <svg class="llm-play"><use xlink:href="#nr_LLM_play"></use></svg>
+                            <svg class="llm-pause"><use xlink:href="#nr_LLM_pause"></use></svg>
+                        </div>
+                    </div>
+                    <div class="llm-voice-info">
+                        <div class="llm-voice-name">
+                                Dorothy
+                            </div>
+                        <div class="llm-voice-wave">
+                            <svg><use xlink:href="#pw_load_wave"></use></svg>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </section>
+
+        <section class="nr-home-products">
+            <div class="home-products-bg"></div>
+            <div class="nr-title-3">
+                Discover Our Products
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <a class="home-products-card" href="./online/">
+                            <div class="home-products-info">
+                                Listen
+                            </div>
+                            <div class="home-products-title">
+                                Welcome to <br>Personal →
+                            </div>
+                            <div>
+                                Explore our personal AI text-to-speech applications. Perfect for students, busy professionals, and avid readers.
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <a class="home-products-card" href="./commercial/">
+                            <div class="home-products-info">
+                                CREATE
+                            </div>
+                            <div class="home-products-title">
+                                Discover <br>Commercial →
+                            </div>
+                            <div>
+                                Commercially licensed audio. Perfect for business, public, or commercial use.
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <a class="home-products-card" href="./edu.html">
+                            <div class="home-products-info">
+                                collaborate
+                            </div>
+                            <div class="home-products-title">
+                                Discover <br>EDU →
+                            </div>
+                            <div>
+                                Discounted Group Licenses. AI Text to Speech applications for schools and education.
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div> -->
+
+    <footer>
+        <div class="main-container">
+            <div class="nr-footer-content">
+                <div class="nr-footer-left">
+                    <div class="nr-logo-wrapper nr-text-primary">
+                        <svg class="logo-icon icon-primary" alt="NaturalReader Logo">
+                            <use xlink:href="#nr_logo"></use>
+                        </svg>
+                        <span>aturalReader</span>
+                    </div>
+                    <div class="nr-copyright">© Naturalsoft Ltd. All Rights Reserved.</div>
+                </div>
+                <div class="nr-footer-right nr-hidden-sm">
+                    <div class="nr-footer-group">
+                        <div class="nr-footer-title">Products</div>
+                        <ul class="nr-footer-links">
+                            <li><a href="webapp.html">A.I. Text to Speech</a></li>
+                            <!-- <li><a href="software.html">Software</a></li> -->
+                            <li><a href="commercial.html">A.I. Voice Generator</a></li>
+                            <!-- <li><a href="widget.html">WebReader</a></li> -->
+                            <li><a href="edu.html">EDU</a></li>
+                            <li><a href="chrome_ext.html">Chrome Extension</a></li>
+                            <li><a href="appdownload.html">iOS & Android app</a></li>
+                        </ul>
+                    </div>
+                    <div class="nr-footer-group">
+                        <div class="nr-footer-title">Resources</div>
+                        <ul class="nr-footer-links">
+                            <li><a href="./about.html">Contact Us</a></li>
+                            <li><a href="./testimonials.html">Testimonials</a></li>
+                            <li><a href="https://help.naturalreaders.com/en/">FAQ</a></li>
+                            <li><a href="./about.html">About US</a></li>
+                            <li><a href="https://naturalsoft.freshstatus.io/" target="_blank">Service Status</a></li>
+                        </ul>
+                    </div>
+                    <div class="nr-footer-group">
+                        <div class="nr-footer-title">Policies</div>
+                        <ul class="nr-footer-links">
+                            <li><a href="./policies.html#refund">Refund</a></li>
+                            <li><a href="./policies.html#privacy">Privacy & Terms</a></li>
+                            <li><a href="./policies.html#agreement">User Agreement</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="accordion nr-footer-right nr-show-sm" id="nr-footer-pages">
+                    <div class="nr-footer-titles">
+                        <a class="nr-footer-title title-products" data-bs-toggle="collapse" href="#nr_collapse_products" role="button" data-bs-target="#nr_collapse_products" aria-expanded="true" aria-controls="nr_collapse_products">
+                            <span>Products</span>
+                            <svg class="nr-icon-20">
+                                <use xlink:href="#chevron-down-dark"></use>
+                            </svg>
+                        </a>
+                        <a class="nr-footer-title title-resources" data-bs-toggle="collapse" href="#nr_collapse_resources" role="button" data-bs-target="#nr_collapse_resources" role="button" aria-expanded="false" aria-controls="nr_collapse_resources">
+                            <span>Resources</span>
+                            <svg class="nr-icon-20">
+                                <use xlink:href="#chevron-down-dark"></use>
+                            </svg>
+                        </a>
+                        <a class="nr-footer-title title-policies" data-bs-toggle="collapse" href="#nr_collapse_policies" role="button" data-bs-target="#nr_collapse_policies" role="button" aria-expanded="false" aria-controls="nr_collapse_policies">
+                            <span>Policies</span>
+                            <svg class="nr-icon-20">
+                                <use xlink:href="#chevron-down-dark"></use>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="nr-footer-pages">
+                        <ul class="nr-footer-links accordion-collapse collapse show" id="nr_collapse_products" data-bs-parent="#nr-footer-pages">
+                            <li><a href="webapp.html">A.I. Text to Speech</a></li>
+                            <!-- <li><a href="software.html">Software</a></li> -->
+                            <li><a href="commercial.html">A.I. Voice Generator</a></li>
+                            <!-- <li><a href="widget.html">WebReader</a></li> -->
+                            <li><a href="edu.html">EDU</a></li>
+                            <li><a href="chrome_ext.html">Chrome Extension</a></li>
+                            <li><a href="appdownload.html">iOS & Android app</a></li>
+                        </ul>
+                        <ul class="nr-footer-links accordion-collapse collapse" id="nr_collapse_resources" data-bs-parent="#nr-footer-pages">
+                            <li><a href="">Contact Us</a></li>
+                            <li><a href="./testimonials.html">Testimonials</a></li>
+                            <li><a href="https://help.naturalreaders.com/en/">FAQ</a></li>
+                            <li><a href="./about.html">About US</a></li>
+                            <li><a href="https://naturalsoft.freshstatus.io/" target="_blank">Service Status</a></li>
+                        </ul>
+                        <ul class="nr-footer-links accordion-collapse collapse" id="nr_collapse_policies" data-bs-parent="#nr-footer-pages">
+                            <li><a href="./policies.html#refund">Refund</a></li>
+                            <li><a href="./policies.html#privacy">Privacy & Terms</a></li>
+                            <li><a href="./policies.html#agreement">User Agreement</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 1rem;">
+                <!-- <a class="nr-btn btn-link-normal" href="#nr_main_header">Back to top ^</a> -->
+                <button class="nr-btn btn-link-normal" id="nr-home-top" onclick="backToNRHeader()">
+                    Back to top ^
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <svg width="0" height="0" style="z-index:-1;position:absolute;">
+        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 74 74" id="nr_LLM_play">
+            <g id="Group 1321314370">
+            <g id="Ellipse 5911" filter="url(#filter0_b_485725_2142)">
+                <circle cx="37.2537" cy="37.2537" r="36.2537" fill="white" fill-opacity="0.6"></circle>
+                <circle cx="37.2537" cy="37.2537" r="36.2537" stroke="black" stroke-opacity="0.6" stroke-width="0.5"></circle>
+            </g>
+            <path id="Polygon 1" d="M55.7686 33.9846C58.4111 35.5288 58.4111 39.3475 55.7686 40.8917L30.8887 55.4309C28.2221 56.9892 24.8705 55.0659 24.8705 51.9773L24.8705 22.899C24.8705 19.8105 28.2221 17.8872 30.8887 19.4455L55.7686 33.9846Z" fill="black" fill-opacity="0.6" stroke="black" stroke-opacity="0.6" stroke-width="0.5"></path>
+            </g>
+            <defs>
+            <filter id="filter0_b_485725_2142" x="-39.25" y="-39.25" width="153.007" height="153.007" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+                <feGaussianBlur in="BackgroundImageFix" stdDeviation="20"></feGaussianBlur>
+                <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_485725_2142"></feComposite>
+                <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_485725_2142" result="shape"></feBlend>
+            </filter>
+            </defs>
+        </symbol>
+        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75 75" id="nr_LLM_pause">
+            <g filter="url(#filter0_b_485725_2137)">
+            <circle cx="37.2537" cy="37.2537" r="36.2537" fill="white" fill-opacity="0.6"></circle>
+            <circle cx="37.2537" cy="37.2537" r="36.2537" stroke="#0078D4" stroke-width="2"></circle>
+            </g>
+            <rect x="40" y="18" width="9" height="37" rx="2" fill="#0078D4"></rect>
+            <rect x="26" y="18" width="9" height="37" rx="2" fill="#0078D4"></rect>
+            <defs>
+            <filter id="filter0_b_485725_2137" x="-40" y="-40" width="154.507" height="154.507" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+                <feGaussianBlur in="BackgroundImageFix" stdDeviation="20"></feGaussianBlur>
+                <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_485725_2137"></feComposite>
+                <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_485725_2137" result="shape"></feBlend>
+            </filter>
+            </defs>
+        </symbol>
+        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 24" id="chevron-down-dark">
+            <path d="M6.022 9l6 6 6-6" stroke="#0078d4" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+            </path>
+        </symbol>
+
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="nr_logo">
+            <rect width="2.31884" height="32" rx="1.15942"></rect>
+            <rect x="3.70996" width="2.31884" height="32" rx="1.15942"></rect>
+            <rect x="7.41992" width="2.31884" height="32" rx="1.15942"></rect>
+            <rect x="11.1309" y="4.85318" width="2.31884" height="15.0142" rx="1.15942"></rect>
+            <path
+                d="M14.8408 10.5404C14.8408 9.91223 15.3599 9.40298 16.0002 9.40298C16.6406 9.40298 17.1597 9.91223 17.1597 10.5404V22.9764C17.1597 23.6046 16.6406 24.1139 16.0002 24.1139C15.3599 24.1139 14.8408 23.6046 14.8408 22.9764V10.5404Z">
+            </path>
+            <rect x="18.5508" y="13.346" width="2.31884" height="15.1659" rx="1.15942"></rect>
+            <rect x="22.2607" width="2.31884" height="32" rx="1.15942"></rect>
+            <rect x="25.9707" width="2.31884" height="32" rx="1.15942"></rect>
+            <rect x="29.6816" width="2.31884" height="32" rx="1.15942"></rect>
+        </symbol>
+        
+        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 24" id="chevron-down-white">
+            <path d="M6.022 9l6 6 6-6" stroke="white" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+            </path>
+        </symbol>
+        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 45" id="pause_icon">
+            <path
+                d="M16.875 30h3.75V15h-3.75v15zM22.5 3.75c-10.35 0-18.75 8.4-18.75 18.75s8.4 18.75 18.75 18.75 18.75-8.4 18.75-18.75S32.85 3.75 22.5 3.75zm0 33.75c-8.269 0-15-6.731-15-15s6.731-15 15-15 15 6.731 15 15-6.731 15-15 15zm1.875-7.5h3.75V15h-3.75v15z"
+                fill="white">
+            </path>
+        </symbol>
+        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 39 31" id="nr_volume">
+            <g id="speaker">
+              <g id="Vector">
+                <mask id="path-1-inside-1_485759_1691" fill="white">
+                  <path d="M25.1688 21.7498L26.4097 23.1274C27.5059 22.1794 28.3838 21.0135 28.9851 19.7072C29.5865 18.4009 29.8975 16.9841 29.8975 15.5508C29.8975 14.1176 29.5865 12.7007 28.9851 11.3944C28.3838 10.0881 27.5059 8.92226 26.4097 7.97426L25.1688 9.35181C26.0657 10.1274 26.784 11.0813 27.276 12.1501C27.768 13.2189 28.0225 14.3782 28.0225 15.5508C28.0225 16.7235 27.768 17.8827 27.276 18.9515C26.784 20.0203 26.0657 20.9742 25.1688 21.7498Z"></path>
+                </mask>
+                <path d="M25.1688 21.7498L26.4097 23.1274C27.5059 22.1794 28.3838 21.0135 28.9851 19.7072C29.5865 18.4009 29.8975 16.9841 29.8975 15.5508C29.8975 14.1176 29.5865 12.7007 28.9851 11.3944C28.3838 10.0881 27.5059 8.92226 26.4097 7.97426L25.1688 9.35181C26.0657 10.1274 26.784 11.0813 27.276 12.1501C27.768 13.2189 28.0225 14.3782 28.0225 15.5508C28.0225 16.7235 27.768 17.8827 27.276 18.9515C26.784 20.0203 26.0657 20.9742 25.1688 21.7498Z" fill="white" stroke="white" stroke-width="4" mask="url(#path-1-inside-1_485759_1691)"></path>
+              </g>
+              <g id="Vector_2">
+                <mask id="path-2-inside-2_485759_1691" fill="white">
+                  <path d="M32.197 25.0331L33.4613 26.3877C34.9943 25.0111 36.2185 23.3367 37.056 21.4711C37.8935 19.6054 38.326 17.5893 38.326 15.5509C38.326 13.5125 37.8935 11.4964 37.056 9.63077C36.2185 7.76513 34.9943 6.09077 33.4613 4.71414L32.197 6.06874C33.5384 7.27329 34.6095 8.73835 35.3423 10.3708C36.0751 12.0032 36.4536 13.7673 36.4536 15.5509C36.4536 17.3345 36.0751 19.0986 35.3423 20.7311C34.6095 22.3635 33.5384 23.8285 32.197 25.0331Z"></path>
+                </mask>
+                <path d="M32.197 25.0331L33.4613 26.3877C34.9943 25.0111 36.2185 23.3367 37.056 21.4711C37.8935 19.6054 38.326 17.5893 38.326 15.5509C38.326 13.5125 37.8935 11.4964 37.056 9.63077C36.2185 7.76513 34.9943 6.09077 33.4613 4.71414L32.197 6.06874C33.5384 7.27329 34.6095 8.73835 35.3423 10.3708C36.0751 12.0032 36.4536 13.7673 36.4536 15.5509C36.4536 17.3345 36.0751 19.0986 35.3423 20.7311C34.6095 22.3635 33.5384 23.8285 32.197 25.0331Z" fill="white" stroke="white" stroke-width="4" mask="url(#path-2-inside-2_485759_1691)"></path>
+              </g>
+              <g id="Vector_3">
+                <mask id="path-3-inside-3_485759_1691" fill="white">
+                  <path d="M20.8834 0.668785C20.741 0.588181 20.5795 0.545746 20.4151 0.545746C20.2507 0.545746 20.0892 0.588181 19.9469 0.668785L7.70653 8.13514H1.43652C1.18814 8.13514 0.949933 8.2319 0.774301 8.40412C0.598669 8.57635 0.5 8.80994 0.5 9.05351V22.0485C0.5 22.292 0.598669 22.5256 0.774301 22.6978C0.949933 22.8701 1.18814 22.9668 1.43652 22.9668H7.70653L19.9328 30.4102C20.0747 30.4972 20.2378 30.5453 20.4051 30.5495C20.5723 30.5537 20.7377 30.5139 20.884 30.4342C21.0303 30.3546 21.1521 30.2379 21.2368 30.0964C21.3215 29.9549 21.366 29.7937 21.3657 29.6296V1.46777C21.3649 1.30458 21.3199 1.14453 21.2351 1.0041C21.1503 0.863673 21.0289 0.74793 20.8834 0.668785ZM2.37304 9.97188H7.05565V21.1301H2.37304V9.97188ZM19.4927 27.9811L8.94274 21.5525V9.55402L19.4927 3.12543V27.9811Z"></path>
+                </mask>
+                <path d="M20.8834 0.668785C20.741 0.588181 20.5795 0.545746 20.4151 0.545746C20.2507 0.545746 20.0892 0.588181 19.9469 0.668785L7.70653 8.13514H1.43652C1.18814 8.13514 0.949933 8.2319 0.774301 8.40412C0.598669 8.57635 0.5 8.80994 0.5 9.05351V22.0485C0.5 22.292 0.598669 22.5256 0.774301 22.6978C0.949933 22.8701 1.18814 22.9668 1.43652 22.9668H7.70653L19.9328 30.4102C20.0747 30.4972 20.2378 30.5453 20.4051 30.5495C20.5723 30.5537 20.7377 30.5139 20.884 30.4342C21.0303 30.3546 21.1521 30.2379 21.2368 30.0964C21.3215 29.9549 21.366 29.7937 21.3657 29.6296V1.46777C21.3649 1.30458 21.3199 1.14453 21.2351 1.0041C21.1503 0.863673 21.0289 0.74793 20.8834 0.668785ZM2.37304 9.97188H7.05565V21.1301H2.37304V9.97188ZM19.4927 27.9811L8.94274 21.5525V9.55402L19.4927 3.12543V27.9811Z" fill="white" stroke="white" stroke-width="4" mask="url(#path-3-inside-3_485759_1691)"></path>
+              </g>
+            </g>
+          </symbol>
+        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="nr_menu">
+            <path d="M0 0h24v24H0V0z" fill="none"></path>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" fill="white"></path>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="nr_close">
+            <path d="M0 0h24v24H0V0z" fill="none"></path>
+            <path 
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z">
+            </path>
+        </symbol>
+        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 246 28" id="nr_start">
+            <path d="M185.116 19.136V17.48L193.54 5.816H196.156V17.24H198.556V19.136H196.156V23H193.996V19.136H185.116ZM194.092 8.096L187.636 17.24H194.092V8.096ZM201.794 23.144C201.378 23.144 201.026 23 200.738 22.712C200.45 22.424 200.306 22.072 200.306 21.656C200.306 21.24 200.45 20.888 200.738 20.6C201.026 20.312 201.378 20.168 201.794 20.168C202.194 20.168 202.53 20.312 202.802 20.6C203.09 20.888 203.234 21.24 203.234 21.656C203.234 22.072 203.09 22.424 202.802 22.712C202.53 23 202.194 23.144 201.794 23.144ZM216.841 7.544H208.417V13.016C208.785 12.504 209.329 12.088 210.049 11.768C210.769 11.432 211.545 11.264 212.377 11.264C213.705 11.264 214.785 11.544 215.617 12.104C216.449 12.648 217.041 13.36 217.393 14.24C217.761 15.104 217.945 16.024 217.945 17C217.945 18.152 217.729 19.184 217.297 20.096C216.865 21.008 216.201 21.728 215.305 22.256C214.425 22.784 213.329 23.048 212.017 23.048C210.337 23.048 208.977 22.616 207.937 21.752C206.897 20.888 206.265 19.736 206.041 18.296H208.177C208.385 19.208 208.825 19.92 209.497 20.432C210.169 20.944 211.017 21.2 212.041 21.2C213.305 21.2 214.257 20.824 214.897 20.072C215.537 19.304 215.857 18.296 215.857 17.048C215.857 15.8 215.537 14.84 214.897 14.168C214.257 13.48 213.313 13.136 212.065 13.136C211.217 13.136 210.473 13.344 209.833 13.76C209.209 14.16 208.753 14.712 208.465 15.416H206.401V5.624H216.841V7.544ZM229.367 0.391999L222.791 27.08H220.631L227.183 0.391999H229.367ZM243.325 7.544H234.901V13.016C235.269 12.504 235.813 12.088 236.533 11.768C237.253 11.432 238.029 11.264 238.861 11.264C240.189 11.264 241.269 11.544 242.101 12.104C242.933 12.648 243.525 13.36 243.877 14.24C244.245 15.104 244.429 16.024 244.429 17C244.429 18.152 244.213 19.184 243.781 20.096C243.349 21.008 242.685 21.728 241.789 22.256C240.909 22.784 239.813 23.048 238.501 23.048C236.821 23.048 235.461 22.616 234.421 21.752C233.381 20.888 232.749 19.736 232.525 18.296H234.661C234.869 19.208 235.309 19.92 235.981 20.432C236.653 20.944 237.501 21.2 238.525 21.2C239.789 21.2 240.741 20.824 241.381 20.072C242.021 19.304 242.341 18.296 242.341 17.048C242.341 15.8 242.021 14.84 241.381 14.168C240.741 13.48 239.797 13.136 238.549 13.136C237.701 13.136 236.957 13.344 236.317 13.76C235.693 14.16 235.237 14.712 234.949 15.416H232.885V5.624H243.325V7.544Z" fill="black" fill-opacity="0.6"></path>
+            <path d="M13.9266 5.77254C13.4776 4.39058 11.5224 4.39057 11.0734 5.77254L9.44256 10.7918C9.37562 10.9978 9.18365 11.1373 8.96703 11.1373H3.68948C2.23639 11.1373 1.63223 12.9967 2.8078 13.8508L7.07743 16.9529C7.25267 17.0802 7.326 17.3059 7.25907 17.5119L5.62821 22.5312C5.17919 23.9131 6.7609 25.0623 7.93647 24.2082L12.2061 21.1061C12.3814 20.9788 12.6186 20.9788 12.7939 21.1061L17.0635 24.2082C18.2391 25.0623 19.8208 23.9131 19.3718 22.5312L17.7409 17.5119C17.674 17.3059 17.7473 17.0802 17.9226 16.9529L22.1922 13.8508C23.3678 12.9967 22.7636 11.1373 21.3105 11.1373H16.033C15.8164 11.1373 15.6244 10.9978 15.5574 10.7918L13.9266 5.77254Z" fill="#F3B458" stroke="white"></path>
+            <path d="M47.9266 5.77254C47.4776 4.39058 45.5224 4.39057 45.0734 5.77254L43.4426 10.7918C43.3756 10.9978 43.1836 11.1373 42.967 11.1373H37.6895C36.2364 11.1373 35.6322 12.9967 36.8078 13.8508L41.0774 16.9529C41.2527 17.0802 41.326 17.3059 41.2591 17.5119L39.6282 22.5312C39.1792 23.9131 40.7609 25.0623 41.9365 24.2082L46.2061 21.1061C46.3814 20.9788 46.6186 20.9788 46.7939 21.1061L51.0635 24.2082C52.2391 25.0623 53.8208 23.9131 53.3718 22.5312L51.7409 17.5119C51.674 17.3059 51.7473 17.0802 51.9226 16.9529L56.1922 13.8508C57.3678 12.9967 56.7636 11.1373 55.3105 11.1373H50.033C49.8164 11.1373 49.6244 10.9978 49.5574 10.7918L47.9266 5.77254Z" fill="#F3B458" stroke="white"></path>
+            <path d="M81.9266 5.77254C81.4776 4.39058 79.5224 4.39057 79.0734 5.77254L77.4426 10.7918C77.3756 10.9978 77.1836 11.1373 76.967 11.1373H71.6895C70.2364 11.1373 69.6322 12.9967 70.8078 13.8508L75.0774 16.9529C75.2527 17.0802 75.326 17.3059 75.2591 17.5119L73.6282 22.5312C73.1792 23.9131 74.7609 25.0623 75.9365 24.2082L80.2061 21.1061C80.3814 20.9788 80.6186 20.9788 80.7939 21.1061L85.0635 24.2082C86.2391 25.0623 87.8208 23.9131 87.3718 22.5312L85.7409 17.5119C85.674 17.3059 85.7473 17.0802 85.9226 16.9529L90.1922 13.8508C91.3678 12.9967 90.7636 11.1373 89.3105 11.1373H84.033C83.8164 11.1373 83.6244 10.9978 83.5574 10.7918L81.9266 5.77254Z" fill="#F3B458" stroke="white"></path>
+            <path d="M115.927 5.77254C115.478 4.39058 113.522 4.39057 113.073 5.77254L111.443 10.7918C111.376 10.9978 111.184 11.1373 110.967 11.1373H105.689C104.236 11.1373 103.632 12.9967 104.808 13.8508L109.077 16.9529C109.253 17.0802 109.326 17.3059 109.259 17.5119L107.628 22.5312C107.179 23.9131 108.761 25.0623 109.936 24.2082L114.206 21.1061C114.381 20.9788 114.619 20.9788 114.794 21.1061L119.064 24.2082C120.239 25.0623 121.821 23.9131 121.372 22.5312L119.741 17.5119C119.674 17.3059 119.747 17.0802 119.923 16.9529L124.192 13.8508C125.368 12.9967 124.764 11.1373 123.311 11.1373H118.033C117.816 11.1373 117.624 10.9978 117.557 10.7918L115.927 5.77254Z" fill="#F3B458" stroke="white"></path>
+            <path d="M149.927 5.77254C149.478 4.39058 147.522 4.39057 147.073 5.77254L145.443 10.7918C145.376 10.9978 145.184 11.1373 144.967 11.1373H139.689C138.236 11.1373 137.632 12.9967 138.808 13.8508L143.077 16.9529C143.253 17.0802 143.326 17.3059 143.259 17.5119L141.628 22.5312C141.179 23.9131 142.761 25.0623 143.936 24.2082L148.206 21.1061C148.381 20.9788 148.619 20.9788 148.794 21.1061L153.064 24.2082C154.239 25.0623 155.821 23.9131 155.372 22.5312L153.741 17.5119C153.674 17.3059 153.747 17.0802 153.923 16.9529L158.192 13.8508C159.368 12.9967 158.764 11.1373 157.311 11.1373H152.033C151.816 11.1373 151.624 10.9978 151.557 10.7918L149.927 5.77254Z" fill="#F3B458" stroke="white"></path>
+            <path d="M149.927 5.77254C149.478 4.39058 147.522 4.39057 147.073 5.77254L145.443 10.7918C145.376 10.9978 145.184 11.1373 144.967 11.1373H139.689C138.236 11.1373 137.632 12.9967 138.808 13.8508L143.077 16.9529C143.253 17.0802 143.326 17.3059 143.259 17.5119L141.628 22.5312C141.179 23.9131 142.761 25.0623 143.936 24.2082L148.206 21.1061C148.381 20.9788 148.619 20.9788 148.794 21.1061L153.064 24.2082C154.239 25.0623 155.821 23.9131 155.372 22.5312L153.741 17.5119C153.674 17.3059 153.747 17.0802 153.923 16.9529L158.192 13.8508C159.368 12.9967 158.764 11.1373 157.311 11.1373H152.033C151.816 11.1373 151.624 10.9978 151.557 10.7918L149.927 5.77254Z" stroke="white"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M149 20.7197C149.026 20.7351 149.051 20.7517 149.075 20.7695L153.529 24.0069C154.313 24.5765 155.368 23.8105 155.068 22.8892L153.367 17.6494C153.233 17.2375 153.379 16.7863 153.73 16.5316L158.185 13.2929C158.969 12.7234 158.566 11.484 157.597 11.484L152.091 11.484C151.658 11.484 151.274 11.205 151.14 10.7929L149.439 5.55444C149.355 5.29859 149.195 5.11378 149 5V20.7197Z" fill="#E5F2FA"></path>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="nr_chevron_left">
+            <path d="M0 0h24v24H0V0z" fill="none"></path>
+            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59z"></path>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="nr_chevron_right">
+            <path d="M0 0h24v24H0V0z" fill="none"></path>
+            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"></path>
+        </symbol>
+        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 294 30" id="pw_load_wave">
+              <line x1="1.25" y1="6.42346" x2="1.25" y2="24.9235" stroke="white" stroke-width="2.5" stroke-linecap="round"></line>
+              <line x1="10.25" y1="11.4235" x2="10.25" y2="21.9235" stroke="white" stroke-width="2.5" stroke-linecap="round"></line>
+              <line x1="18.25" y1="14.4235" x2="18.25" y2="19.9235" stroke="white" stroke-width="2.5" stroke-linecap="round"></line>
+              <line x1="26.25" y1="15.4235" x2="26.25" y2="18.9235" stroke="white" stroke-width="2.5" stroke-linecap="round"></line>
+              <path d="M34.25 11.4235L34.25 19.9235" stroke="white" stroke-width="2.5" stroke-linecap="round"></path>
+              <path d="M42 8.17346L42 23.1735" stroke="white" stroke-width="2.5" stroke-linecap="round"></path>
+              <path d="M52 2.17346V28.1735" stroke="white" stroke-width="2.5" stroke-linecap="round"></path>
+              <path d="M60 7.17346V23.1735" stroke="white" stroke-width="2.5" stroke-linecap="round"></path>
+              <path d="M69 10.1735V21.1735" stroke="white" stroke-width="2.5" stroke-linecap="round"></path>
+              <path d="M77 13.1735V20.1735" stroke="white" stroke-width="2.5" stroke-linecap="round"></path>
+              <path d="M85 14.1735V17.1735" stroke="white" stroke-width="2.5" stroke-linecap="round"></path>
+              <path d="M94 11.1735V20.1735" stroke="white" stroke-width="2.5" stroke-linecap="round"></path>
+              <path d="M102 7.17346V23.1735" stroke="white" stroke-width="2.5" stroke-linecap="round"></path>
+              <path d="M111 13.1735V20.1735" stroke="white" stroke-width="2.5" stroke-linecap="round"></path>
+              <path d="M120 12.1735V17.1735" stroke="white" stroke-width="2.5" stroke-linecap="round"></path>
+              <path d="M129 11.1735V16.1735" stroke="white" stroke-width="2.5" stroke-linecap="round"></path>
+              <path d="M138 7.17346V23.1735" stroke="white" stroke-width="2.5" stroke-linecap="round"></path>
+              <path d="M147 2.17346V28.1735" stroke="white" stroke-width="2.5" stroke-linecap="round"></path>
+              <path d="M156 8.17346V21.1735" stroke="white" stroke-width="2.5" stroke-linecap="round"></path>
+              <path d="M165 11.1735V20.1735" stroke="white" stroke-width="2.5" stroke-linecap="round"></path>
+              <path d="M174 13.1735V17.1735" stroke="white" stroke-width="2.5" stroke-linecap="round"></path>
+              <path d="M183 11.1735L183 17.1735" stroke="white" stroke-width="2.5" stroke-linecap="round"></path>
+              <path d="M191 7.17346L191 23.1735" stroke="white" stroke-width="2.5" stroke-linecap="round"></path>
+              <path d="M199 11.1735L199 20.1735" stroke="white" stroke-width="2.5" stroke-linecap="round"></path>
+              <path d="M208 13.1735L208 17.1735" stroke="white" stroke-width="2.5" stroke-linecap="round"></path>
+              <path d="M217 13.1735L217 17.1735" stroke="white" stroke-width="2.5" stroke-linecap="round"></path>
+              <path d="M225 10.1735L225 20.1735" stroke="white" stroke-width="2.5" stroke-linecap="round"></path>
+              <path d="M233 6.17346L233 26.1735" stroke="white" stroke-width="2.5" stroke-linecap="round"></path>
+              <path d="M242 2.17346L242 28.1735" stroke="white" stroke-width="2.5" stroke-linecap="round"></path>
+              <path d="M252 7.17346L252 23.1735" stroke="white" stroke-width="2.5" stroke-linecap="round"></path>
+              <path d="M260 10.1735L260 20.1735" stroke="white" stroke-width="2.5" stroke-linecap="round"></path>
+              <path d="M268 13.1735L268 23.1735" stroke="white" stroke-width="2.5" stroke-linecap="round"></path>
+              <path d="M276 13.1735L276 21.1735" stroke="white" stroke-width="2.5" stroke-linecap="round"></path>
+              <path d="M284 11.1735L284 19.1735" stroke="white" stroke-width="2.5" stroke-linecap="round"></path>
+              <path d="M292 7.17346L292 26.1735" stroke="white" stroke-width="2.5" stroke-linecap="round"></path>
+        </symbol>
+    </svg>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="./comfiles/index/css/index.css?v=04233">
+
+    <script defer src="comfiles/commercial/js/lazysizes.min.js" async></script>
+    <script defer src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jplayer/2.9.2/jplayer/jquery.jplayer.min.js"></script>
+
+    <script defer src="./comfiles/index/js/index.js?v=04232"></script>
+
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-CW9Z1LWZ31"></script>
+    <script defer>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-CW9Z1LWZ31');
+    </script>
+
+    <script defer>
+        const appBrowser = getAppBrowser();
+        if (appBrowser == "webBrowser") {
+            closeDownload();
+        } else {
+            document.getElementById("pw-download-android").classList.remove("nr-hidden");
+        }
+
+        function closeDownload() {
+            document.getElementById("pw-download-android").remove();
+            document.body.classList.remove("with-download");
+        }
+
+        function openDownload() {
+            if (appBrowser == 'androidBrowser') {
+                viewOnGooglePlayStore();
+            } else if (appBrowser == 'iosBrowser') {
+                viewOnIOSAppStoreTopBanner();
+            }
+        }
+
+        function getAppBrowser() {
+            // console.error(navigator.userAgent)
+            if (navigator.userAgent.match(/Android/i)) {
+                return 'androidBrowser';
+            } else if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
+                return 'iosBrowser';
+            } else if (navigator.userAgent.toLowerCase().indexOf('macintosh') > -1 && navigator.maxTouchPoints && navigator.maxTouchPoints > 2) {
+                return 'iosBrowser';
+            } else {
+                return 'webBrowser';
+            }
+        }
+
+        function viewOnIOSAppStoreTopBanner() {
+            // gtag('config', { pageTitle: 'ios app top banner click', pagePath: '/get_ios_app.html' });
+            // gtag('event', { eventType: 'ios app', eventCategory: 'iosApp', eventLabel: 'Get iOS Top Banner click' });
+            window.open('https://apps.apple.com/app/apple-store/id1487572960?pt=439950&ct=mobile_browser_top_banner&mt=8', '_blank');
+        }
+
+        function viewOnGooglePlayStore() {
+            // gtag('config', { pageTitle: 'android app button click', pagePath: '/get_android_app.html' });
+            // gtag('event', { eventType: 'android app', eventCategory: 'androidApp', eventLabel: 'Get Android button click' });
+            window.open('https://play.google.com/store/apps/details?id=com.naturalsoft.personalweb', '_blank');
+        }
+    </script>
+
+    <script>
+        function backToNRHeader() {
+            window.scrollTo(0, 0);
+        }
+    </script>
+
+</body>
+
+</html>
